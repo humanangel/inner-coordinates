@@ -1,0 +1,32 @@
+// process planetary data
+
+//assume json is externally loaded so capture data in variables
+
+var go1 = Object.values(user1);
+var go2 = Object.values(user2);
+
+// user1 user2 arguments take dob info (see dob code)
+
+
+
+function planet(user){
+
+	day 	= planets[0];  number 	= planets[1];
+	SRT 	= planets[2];  sun 	= planets[3];
+	moon 	= planets[4];  mercury = planets[5];
+	venus 	= planets[6];  mars 	= planets[7];
+	jupiter = planets[8];  saturn 	= planets[9];
+	uranus 	= planets[10]; neptune = planets[11];
+	pluto 	= planets[12]; node 	= planets[13];
+
+
+function layout(x){
+x.match(sign, degree, minute, planet)
+
+this.sign  = "/ar|ta|ge|cn|le|vi|li|sc|sg|cp|aq|pi/gi";
+this.degree = "/^\d{2}/";
+this.minute = "/\d{2}$/";
+
+x = {sign, degree, minute}
+return x
+} return x;};	

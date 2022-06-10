@@ -1,0 +1,1320 @@
+<!doctype HTML> 
+<!--must declare this per protocol mandate-->
+<html>
+ <head>
+<!-- the head is the hidden part of a website or service. Here is the home to instructional scripts, styles and meta data-->
+  <meta charset ="utf-8"/>
+<!--  script is the brains or thinking within the head section. Various scripting languages can direct this HTML. Right now Javascript is in charge.-->
+  <script>
+function chartProcess()
+{
+	input 
+	= { 
+	'chartForm': chartForm = document.URL.split('&')
+	,
+	'year' :  year = +chartForm[6].slice(-4)
+	,
+	'month' :  month = +chartForm[4].slice(-2)
+	,
+	'monthname' : monthname = (month === 0) ? "January" 
+	:  (month ===  1 ) ? "February"
+	:  (month ===  2 ) ? "March"
+	:  (month ===  3 ) ? "April"
+	:  (month ===  4 ) ? "May"
+	:  (month ===  5 ) ? "June"
+	:  (month ===  6 ) ? "July"
+	:  (month ===  7 ) ? "August"
+	:  (month ===  8 ) ? "September"
+	:  (month ===  9 ) ? "October"
+	:  (month ===  10 ) ? "November"
+	:  (month ===  11 ) ? "December"
+	:  (month === 12 ) ? "January"
+	: "This month"  	
+	,
+	'monthlength'	: monthlength = (month == 0) ? 31 
+	: (month == 1) ? 28
+	: (month == 2) ? 31
+	: (month == 3) ? 30
+	: (month == 4) ?  31
+	: (month == 5) ? 30
+	: (month == 6) ? 31
+	: (month == 7) ? 31
+	: (month == 8) ? 31
+	: (month == 9) ? 30
+	: (month == 10) ? 30
+	: (month == 11) ? 31
+	: (month == 12) ? 31
+	: 0
+	,
+	'dayNo' :  dayNo = +chartForm[5].slice(-2) - 1
+	,
+	'day' :  day = new Date(month +1+","+ dayNo +1 +','+ year).toString().slice(0,3)
+	,
+	'dayname' : dayname = (day === 'Sun') ? 'Sunday'
+	: (day ==='Mon') ? 'Monday'
+	: (day ==='Tue') ? 'Tuesday'
+	: (day ==='Wed') ? 'Wednesday'
+	: (day ==='Thu') ? 'Thursday'
+	: (day ==='Fri') ? 'Friday'
+	: (day ==='Sat') ? 'Saturday'
+	:'This day'
+	,
+	'hour' :  hour = Number(chartForm[7].slice(-2))
+	,
+	'minute' : minute = Number(chartForm[8].slice(-2))
+	,
+	'second' : second = 0
+	,
+	'fname' :  fname = chartForm[2].slice(-2)
+	,
+	'lname' :  lname = chartForm[3].slice(-2)
+	,
+	'offset' : offset = parseInt(document.URL.slice(61,63))
+	,
+	'offsethours' : offsethours = Math.trunc(parseInt(document.URL.slice(61,63)))
+	,
+	'offsetminutes' : offsetminutes = parseInt(document.URL.slice(61,63)) % 1
+	,
+	'ampm' : ampm = chartForm[0].slice(-2)
+	,  			   
+	'home' : "home"
+	,
+	'mix' :  'special'
+	,
+	'hashID' : document.lastModified + this.mix
+	,
+	"military" : military = (ampm === 'pm') ? hour + 12 : hour
+	,
+	'utc': utc = 
+		{
+		'hour' :  hour = military + offsethours,
+		'minute' : minute = offsetminutes + minute
+		}
+	,
+	"dayBY" : dayBY 
+		= {
+		'birth' : [second,minute, hour, dayNo, month, year], 
+		'military' : [second, minute, military, dayNo, month, year],
+		'utc' : [second,utc.minute, utc.hour, dayNo, month, year]
+		}
+	,
+	'hourflag' : hourflag = (utc.hour > 23) ? 1 
+	: (utc.hour  < 0) ? 0 - 1  
+	: 0,
+	'dayNoflag' : dayNoflag = (dayNo >= monthlength ) ? 1 
+	: (dayNo < 1) ? 0 - 1  
+	: 0,
+	'monthflag' :  monthflag = (month > 11) ? 1 
+	: (month < 0) ? 0 - 1 
+	: 0,
+	'yearflag' : yearflag = (month > 11) ? 1
+	: (month < 0) ? 0 - 1
+	: 0	
+	}						
+	birth 
+	= {
+	'second' : second = (input.second > 59) ? input.second - 60 && input.minute + 1 :input.second
+	,
+	'minute' : minute = (input.minute > 59) ? input.minute - 60 && utc.hour + 1 : utc.minute
+	, 
+	'hour' :  hour = (input.hourflag > 0) ? utc.hour - 24 
+	: (input.hourflag < 0) ? utc.hour + 24
+	: utc.hour
+	,
+	'monthname' : monthname = (month === 0) ? "January" 
+	:  (month ===  1 ) ? "February"
+	:  (month ===  2 ) ? "March"
+	:  (month ===  3 ) ? "April"
+	:  (month ===  4 ) ? "May"
+	:  (month ===  5 ) ? "June"
+	:  (month ===  6 ) ? "July"
+	:  (month ===  7 ) ? "August"
+	:  (month ===  8 ) ? "September"
+	:  (month ===  9 ) ? "October"
+	:  (month ===  10 ) ? "November"
+	:  (month ===  11 ) ? "December"
+	:  (month === 12 ) ? "January"
+	: "This month"  	
+	,
+	'monthlength'	: monthlength = (month == 0) ? 31 
+	: (month == 1) ? 28
+	: (month == 2) ? 31
+	: (month == 3) ? 30
+	: (month == 4) ?  31
+	: (month == 5) ? 30
+	: (month == 6) ? 31
+	: (month == 7) ? 31
+	: (month == 8) ? 31
+	: (month == 9) ? 30
+	: (month == 10) ? 30
+	: (month == 11) ? 31
+	: (month == 12) ? 31
+	: 0
+    ,
+	'dayNo' : dayNo = (input.hourflag > 0) ? input.dayNo + 1 
+	: (input.hourflag < 0) ? input.dayNo - 1
+	: input.dayNo
+	,
+	'month' :  month = input.month
+	,																									
+	'year' : year = input.year
+	,
+	'syear' : syear = input.year.toString()
+	,
+	'userName' : userName = input.fname +" "+input.lname
+	,
+	'array' : array = [year,month,dayNo]
+	}
+ 	today 
+	= { 
+	'time' : time = new Date()
+	, // for testing... time = new Date('11,1,2021')
+	'dayNo' :  dayNo = time.getDate()
+	, // for testing when changing make sure to - 1,
+	'year' : year= time.getFullYear()
+	,
+	'syear' : syear = time.getFullYear().toString()
+	,
+	'month' :  month = time.getMonth()
+	,
+	'day' :  day = time.toString().slice(0,3)
+	,
+	'hour' : hour = time.getHours()
+	,
+	'minute' : minute = time.getMinutes()
+	,
+	'second' : second = time.getSeconds()
+	,
+	'userName' : userName = this.day +" "+this.dayNo
+	,
+	'dayname' :time.dayname = (day === 'Sun') ? 'Sunday'
+	: (day ==='Mon') ? 'Monday'
+	: (day ==='Tue') ? 'Tuesday'
+	: (day ==='Wed') ? 'Wednesday'
+	: (day ==='Thu') ? 'Thursday'
+	: (day ==='Fri') ? 'Friday'
+	: (day ==='Sat') ? 'Saturday'
+	:'This day'
+	,
+	'array' : array = [year,month,dayNo]
+	,	
+	'monthname' : monthname = (month === 0) ? monthname = "January" 
+	:  (month ===  1 ) ? monthname = "February"
+	:  (month ===  2 ) ? monthname = "March"
+	:  (month ===  3 ) ? monthname = "April"
+	:  (month ===  4 ) ? monthname = "May"
+	:  (month ===  5 ) ? monthname = "June"
+	:  (month ===  6 ) ? monthname = "July"
+	:  (month ===  7 ) ? monthname = "August"
+	:  (month ===  8 ) ? monthname = "September"
+	:  (month ===  9 ) ? monthname = "October"
+	:  (month ===  10 ) ? monthname = "November"
+	:  (month ===  11 ) ? monthname = "December"
+	:  (month === 12 ) ? monthname = "January"
+	: monthname = "This month"  	
+	,
+	'monthlength'	: monthlength = (month == 0) ? monthlength = 31 
+	: (month == 1) ? monthlength = 28
+	: (month == 2) ? monthlength = 31
+	: (month == 3) ? monthlength = 30
+	: (month == 4) ?  monthlength = 31
+	: (month == 5) ? monthlength = 30
+	: (month == 6) ? monthlength = 31
+	: (month == 7) ? monthlength = 31
+	: (month == 8) ? monthlength= 31
+	: (month == 9) ? monthlength = 30
+	: (month == 10) ? monthlength = 30
+	: (month == 11) ? monthlength = 31
+	: (month == 12) ? monthlength = 31
+	: monthlength = 0  	
+ 	};								
+
+	function Player (type)
+	{
+	this.userName = type.userName;	
+	this.syear = type.syear
+	this.month = type.month; 
+	this.dayNo = type.dayNo ;
+	this.day = type.day; 
+	this.dayname = type.dayname; 
+	this.monthname = type.monthname; 
+	this.monthlength = type.monthlength; 
+	this.hour = type.hour; 
+	this.minute = type.minute; 
+	this.second = type.second;
+	this.year = (type.year === 1950) ? Y1950
+	: (type.year === 1951 ) ? Y1951
+	: (type.year === 1952 ) ? Y1952
+	: (type.year === 1953 ) ? Y1953
+	: (type.year === 1954 ) ? Y1954
+	: (type.year === 1955 ) ? Y1955
+	: (type.year === 1956 ) ? Y1956
+	: (type.year === 1957 ) ? Y1957
+	: (type.year === 1958 ) ? Y1958
+	: (type.year === 1959 ) ? Y1959
+	: (type.year === 1960 ) ? Y1960
+	: (type.year === 1961 ) ? Y1961
+	: (type.year === 1962 ) ? Y1962
+	: (type.year === 1963 ) ? Y1963
+	: (type.year === 1964 ) ? Y1964
+	: (type.year === 1965 ) ? Y1965
+	: (type.year === 1966 ) ? Y1966
+	: (type.year === 1967 ) ? Y1967
+	: (type.year === 1968 ) ? Y1968
+	: (type.year === 1969 ) ? Y1969
+	: (type.year === 1970 ) ? Y1970
+	: (type.year === 1971 ) ? Y1971
+	: (type.year === 1972 ) ? Y1972
+	: (type.year === 1973 ) ? Y1973
+	: (type.year === 1974 ) ? Y1974
+	: (type.year === 1975 ) ? Y1975
+	: (type.year === 1976 ) ? Y1976
+	: (type.year === 1977 ) ? Y1977
+	: (type.year === 1978 ) ? Y1978
+	: (type.year === 1979 ) ? Y1979
+	: (type.year === 1980 ) ? Y1980
+	: (type.year === 1981 ) ? Y1981
+	: (type.year === 1982 ) ? Y1982
+	: (type.year === 1983 ) ? Y1983
+	: (type.year === 1984 ) ? Y1984
+	: (type.year === 1985 ) ? Y1985
+	: (type.year === 1986 ) ? Y1986
+	: (type.year === 1987 ) ? Y1987
+	: (type.year === 1988 ) ? Y1988
+	: (type.year === 1989 ) ? Y1989
+	: (type.year === 1990 ) ? Y1990
+	: (type.year === 1991 ) ? Y1991
+	: (type.year === 1992 ) ? Y1992
+	: (type.year === 1993 ) ? Y1993
+	: (type.year === 1994 ) ? Y1994
+	: (type.year === 1995 ) ? Y1995
+	: (type.year === 1996 ) ? Y1996
+	: (type.year === 1997 ) ? Y1997
+	: (type.year === 1998 ) ? Y1998
+	: (type.year === 1999 ) ? Y1999
+	: (type.year === 2000 ) ? Y2000
+	: (type.year === 2001 ) ? Y2001
+	: (type.year === 2002 ) ? Y2002
+	: (type.year === 2003 ) ? Y2003
+	: (type.year === 2004 ) ? Y2004
+	: (type.year === 2005 ) ? Y2005
+	: (type.year === 2006 ) ? Y2006
+	: (type.year === 2007 ) ? Y2007
+	: (type.year === 2008 ) ? Y2008
+	: (type.year === 2009 ) ? Y2009
+	: (type.year === 2010 ) ? Y2010
+	: (type.year === 2011 ) ? Y2011
+	: (type.year === 2012 ) ? Y2012
+	: (type.year === 2013 ) ? Y2013
+	: (type.year === 2014 ) ? Y2014
+	: (type.year === 2015 ) ? Y2015
+	: (type.year === 2016 ) ? Y2016
+	: (type.year === 2017 ) ? Y2017
+	: (type.year === 2018 ) ? Y2018
+	: (type.year === 2019 ) ? Y2019
+	: (type.year === 2020 ) ? Y2020       
+	: (type.year === 2021 ) ? Y2020
+	: Y2020 
+	// add more years      
+ 	
+	/*
+	makeChart =	function makeChart(x)
+		{  
+		this.year = x;
+		switch(this.year){
+        case 1950 : this.year = Y1950; 
+        break; case 1951 : this.year = Y1951; 
+        break; case 1952 : this.year = Y1952; 
+        break; case 1953 : this.year = Y1953;
+		break; case 1954 : this.year = Y1954; 
+        break; case 1955 : this.year = Y1955; 
+        break; case 1956 : this.year = Y1956;
+        break; case 1957 : this.year = Y1957; 
+        break; case 1958 : this.year = Y1958; 
+        break; case 1959 : this.year = Y1959;
+        break; case 1960 : this.year = Y1960; 
+        break; case 1961 : this.year = Y1961; 
+        break; case 1962 : this.year = Y1962; 
+        break; case 1963 : this.year = Y1963;
+        break; case 1964 : this.year = Y1964; 
+        break; case 1965 : this.year = Y1965; 
+        break; case 1966 : this.year = Y1966;
+        break; case 1967 : this.year = Y1967; 
+        break; case 1968 : this.year = Y1968; 
+        break; case 1969 : this.year = Y1969;
+        break; case 1970 : this.year = Y1970; 
+        break; case 1971 : this.year = Y1971; 
+        break; case 1972 : this.year = Y1972; 
+        break; case 1973 : this.year = Y1973;
+        break; case 1974 : this.year = Y1974; 
+        break; case 1975 : this.year = Y1975; 
+        break; case 1976 : this.year = Y1976;
+        break; case 1977 : this.year = Y1977; 
+        break; case 1978 : this.year = Y1978; 
+        break; case 1979 : this.year = Y1979;
+        break; case 1980 : this.year = Y1980; 
+        break; case 1981 : this.year = Y1981; 
+        break; case 1982 : this.year = Y1982; 
+        break; case 1983 : this.year = Y1983;
+        break; case 1984 : this.year = Y1984; 
+        break; case 1985 : this.year = Y1985; 
+        break; case 1986 : this.year = Y1986;
+        break; case 1987 : this.year = Y1987; 
+        break; case 1988 : this.year = Y1988; 
+        break; case 1989 : this.year = Y1989;
+        break; case 1990 : this.year = Y1990; 
+        break; case 1991 : this.year = Y1991; 
+        break; case 1992 : this.year = Y1992; 
+        break; case 1993 : this.year = Y1993;
+        break; case 1994 : this.year = Y1994; 
+        break; case 1995 : this.year = Y1995; 
+        break; case 1996 : this.year = Y1996;
+        break; case 1997 : this.year = Y1997; 
+        break; case 1998 : this.year = Y1998; 
+        break; case 1999 : this.year = Y1999;
+        break; case 2000 : this.year = Y2000; 
+        break; case 2001 : this.year = Y2001; 
+        break; case 2002 : this.year = Y2002; 
+        break; case 2003 : this.year = Y2003;
+        break; case 2004 : this.year = Y2004; 
+        break; case 2005 : this.year = Y2005; 
+        break; case 2006 : this.year = Y2006;
+        break; case 2007 : this.year = Y2007; 
+        break; case 2008 : this.year = Y2008; 
+        break; case 2009 : this.year = Y2009;
+        break; case 2010 : this.year = Y2010; 
+        break; case 2011 : this.year = Y2011; 
+        break; case 2012 : this.year = Y2012; 
+        break; case 2013 : this.year = Y2013;
+        break; case 2014 : this.year = Y2014; 
+        break; case 2015 : this.year = Y2015; 
+        break; case 2016 : this.year = Y2016;
+        break; case 2017 : this.year = Y2017; 
+        break; case 2018 : this.year = Y2018; 
+        break; case 2019 : this.year = Y2019;
+        break; case 2020 : this.year = Y2020;        
+        break; case 2021 : this.year = Y2020; // add more years      
+        }	
+		return this.year;
+*/
+   
+		dd= (this.year)[this.month][this.dayNo];
+			const day = dd.Day;
+			const number = dd.DayN;
+			const srt = dd.SRT;
+			const sun = dd.SU;
+			const moon = dd.MO;
+			const mercury = dd.ME;
+			const venus = dd.VE;
+			const mars = dd.MA;
+			const jupiter = dd.JU;
+			const saturn = dd.SA;
+			const uranus = dd.UR;
+			const neptune = dd.NE;
+			const pluto = dd.PL;
+			const node = dd.NO;
+        
+		 switch(dd.Day){
+			case 'Sun' : this.dayname = "Sunday"
+			break; case 'Mon' : this.dayname  = "Monday"
+			break; case 'Tue' : this.dayname = "Tuesday"
+			break; case 'Wed' : this.dayname = "Wednesday"
+			break; case 'Thu' : this.dayname = "Thursday"
+			break; case 'Fri' : this.dayname = "Friday"
+			break; case 'Sat' : this.dayname = "Saturday"
+			break; default : this.dayname = "This day"  	
+		 };
+
+
+ 
+ function layout(x){this.sign  =  x.match(/ar|ta|ge|cn|le|vi|li|sc|sg|cp|aq|pi/gi).join();            
+              switch(this.sign){
+					case 'AR' : signFullName = "Aries", signNumber=1;
+					break; case 'TA' : signFullName ="Taurus",signNumber=2;
+					break; case 'GE' : signFullName ="Gemini", signNumber=3;
+					break; case 'CN' : signFullName ="Cancer", signNumber=4;
+					break; case 'LE' : signFullName ="Leo", signNumber=5;
+					break; case 'VI' : signFullName ="Virgo", signNumber=6;
+					break; case 'LI' : signFullName ="Libra", signNumber=7;
+					break; case 'SC' : signFullName ="Scorpio", signNumber=8;
+					break; case 'SG' : signFullName ="Sagittarius", signNumber=9;
+					break; case 'CP' : signFullName ="Capricorn", signNumber=10;
+					break; case 'AQ' : signFullName ="Aquarius", signNumber=11;
+					break; case 'PI' : signFullName ="Pisces", signNumber=12;
+					break; default: signFullName,  signNumber =0;          
+			                  } 
+              this.degree = x.match(/^\d{2}/).join();
+              this.minute = x.match(/\d{2}$/).join();
+              this.second = 0;
+//DEBUG TOOL
+			  last_user_node = {sign : signFullName, signNo: +signNumber, 
+              degree: +this.degree, minute: +this.minute,
+               second: +this.second}
+               return last_user_node}  	
+display = { 'sun' : layout(sun),  'moon' : layout(moon),  'mercury' : layout(mercury), 
+'venus' : layout(venus),  'mars' : layout(mars),   'jupiter' : layout(jupiter),  
+'saturn' : layout(saturn),  'uranus' : layout(uranus),  'neptune' : layout(neptune),  
+'pluto' : layout(pluto),     'node' : layout(node)  				
+}
+var narrative = display.sun.sign  +" in "+display.sun.degree+ " degrees and " +display.sun.minute + " minutes. Moon sign was " 
++display.moon.sign + " in " +display.moon.degree+ " degrees and " +display.moon.minute + " minutes. Mars sign was "+
+display.mars.sign + " in " +display.mars.degree+ " degrees and " +display.mars.minute + " minutes. Venus sign was "+
+display.venus.sign + " in " + display.venus.degree+ " degrees and " +display.venus.minute + " minutes. Mercury sign was "+
+display.mercury.sign + " in " + display.mercury.degree+ " degrees and " + display.mercury.minute + " minutes. Jupiter sign was "+
+display.jupiter.sign + " in " + display.jupiter.degree+ " degrees and " + display.jupiter.minute + " minutes. Saturn sign was "+
+display.saturn.sign + " in " + display.saturn.degree+ " degrees and " + display.saturn.minute + " minutes. Uranus sign was "+
+display.uranus.sign + " in " + display.uranus.degree+ " degrees and " + display.uranus.minute + " minutes. Neptune sign was "+
+display.neptune.sign + " in " + display.neptune.degree+ " degrees and " + display.neptune.minute + " minutes. Pluto sign was "+
+display.pluto.sign + " in " + display.pluto.degree+ " degrees and " + display.pluto.minute;
+	
+
+// add end of month/year logic to get correct day...
+
+// add tally of signs and element and gender and cardinal/fixed/mutable...info
+
+
+z = {};
+// z.againchart = this.year[this.month][this.dayNo];
+// z.againdayb4 = this.year[this.month][this.dayNo - 1];
+// z.planetPatterns = '';
+// z.firstday = this.year[this.month][0];
+// z.lastday = this.year[this.month][this.monthlength -1];
+z.array = array;
+z.month = month;
+z.monthname = monthname;
+z.monthlength = monthlength;
+z.dayname = dayname;
+z.dayNo = dayNo;
+z.chart = dd;
+z.display = display;
+z.narrative = narrative;
+// z.year = birth.year.toString();	
+z.username = this.userName;	
+ return z;
+}
+
+
+// modelday = function thedetails(){ 
+
+// 	x = birth.array;     	
+// 	x.dayNo = x[2] -  1;   	
+// 	x.month = x[1];		
+// 	x.year = x[0];		
+// 	x.ml = birth.monthlength;	
+	
+
+// 	getmonthlength  = function gv(month){(month == 0) ? monthlength = 31 
+// 					        : (month == 1) ? monthlength = 28
+// 							: (month == 2) ? monthlength = 31
+// 							: (month == 3) ? monthlength = 30
+// 							: (month == 4) ?  monthlength = 31
+// 							: (month == 5) ? monthlength = 30
+// 							: (month == 6) ? monthlength = 31
+// 							: (month == 7) ? monthlength = 31
+// 							: (month == 8) ? monthlength= 31
+// 							: (month == 9) ? monthlength = 30
+// 							: (month == 10) ? monthlength = 30
+// 							: (month == 11) ? monthlength = 31
+// 							: (month == 12) ? monthlength = 31
+// 					        : monthlength = 0
+// 	return monthlength;
+// 						} 
+		
+// 	  if (x.dayNo >= x.ml && x.month == 11) {finmonth = x.month - 11; findayNo = 0; finyear = x.year +1}
+// 	   else if (x.dayNo >= x.ml) {finmonth = x.month + 1; findayNo = 0}
+// 	   else if (x.dayNo <= 0 && x.month == 0){ finmonth = x.month + 11; findayNo = getmonthlength(x.month + 11); finyear = x.year - 1}
+// 	   else if (x.dayNo <= 0 ){ finmonth = x.month - 1; findayNo = getmonthlength(x.month - 1); }
+	
+
+// 		else x.dayNo;
+	
+// 	// ystday = makeChart(finyear)[finmonth][findayNo];
+
+// 	return x.dayNo;//ystday;
+// 		}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			// vf = modelday().tmoro;
+			// vv = modelday().ystday;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			// || real.array[2] >= monthlength
+/*				'second' : (real.second > 59) ? real.second - 60 && real.minute + 1 : real.second,
+				'minute' : (real.minute > 59) ? real.minute - 60 && real.hour + 1 : real.minute, 
+				'hour' :  (real.hour > 23) ?  (real.hour - 24) : real.hour,
+				'months31' : months31 = (real.month === 0 || real.month === 2 || real.month === 5 || real.month === 7 || real.month === 9 || real.month === 11) ?  31 : 30, 
+				'months30' : months30 = (real.month === 3 || real.month === 4 || real.month === 6 || real.month === 8 || real.month === 10) ?  30 :  31 ,
+				'febr' : febr = real.month === 1,
+				'day' : day,
+				'dayNo_' : dayNo_ = real.dayNo_ - 1,
+				'dayNo' : dayNo = (dayNo_ < 1 || dayNo_ >= monthlength )?  monthlength - dayNo_ : dayNo_ ,
+				
+				// 'dayNo' :  dayNo = ((febr && dayNo_ > 28) || (months31 && dayNo_ > 31) || (months30 && dayNo_ > 30)) ? dayNo_ - dayNo_ : (real.hour > 23) ? dayNo_ - 1 : dayNo_,
+				
+				
+				'monthchange' :  monthchange = ((febr && real.dayNo_ > 29) || (months31 && real.dayNo_ > 31) || (months30 && real.dayNo_ > 30)) ? real.month + 1 : real.month,																					
+				'month' :  month = (real.month === 0 || real.month === 12) ? month = 11 : real.month,
+				'monthlength' : monthlength = (months30) ? months30 : (months31) ? months31 : 28,																				
+				'year' :  year = (real.monthchange > 11) ? real.year - 1 : real.year,
+				'array' : array = [year,month,dayNo]
+				
+*//*
+dayafterb = {
+	
+				'second' : (real.second > 59) ? real.second - 60 && real.minute + 1 : real.second,
+				'minute' : (real.minute > 59) ? real.minute - 60 && real.hour + 1 : real.minute, 
+				'hour' :  (real.hour > 23) ?  (real.hour - 24) : real.hour,
+				'months31' : months31 = (real.month === 0 || real.month === 2 || real.month === 5 || real.month === 7 || real.month === 9 || real.month === 11) ?  31 : 30, 
+				'months30' : months30 = (real.month === 3 || real.month === 4 || real.month === 6 || real.month === 8 || real.month === 10) ?  30 :  31,
+				'febr' : febr = real.month === 1,
+				'day' : day,
+				'dayNo_' : dayNo_ = real.dayNo + 1,
+				'dayNo' :  dayNo = ((febr && dayNo_ > 28) || (months31 && dayNo_ > 31) || (months30 && dayNo_ > 30)) ? dayNo_ - dayNo_ : (real.hour > 23) ? dayNo_ + 1 : dayNo_,
+				'monthchange' :  monthchange = ((febr && dayNo_ > 29) || (months31 && dayNo_ > 31) || (months30 && dayNo_ > 30)) ? real.month + 1 : real.month,																					
+				'month' :  month = (monthchange > 11) ? month = 0 : real.month,	
+				'monthlength' : monthlength = (months30) ? months30 : (months31) ? months31 : 28,																				
+				'year' :  year = (real.monthchange > 11) ? real.year + 1 : real.year,
+				'array' : array = [year,month,dayNo]
+				};
+
+*/
+// yesterday = { 
+// 				'time' : time = today.time,
+// 				'dayNo' :  dayNo = time.getDate() - 1, // when testing - 2
+// 				'year' : time.getFullYear(),
+// 				'month' :  time.getMonth(),
+// 				'day' :  time.toString().slice(0,3),
+// 				'hour' :  time.getHours(),
+// 				'minute' : time.getMinutes(),
+// 				'second' : time.getSeconds(),
+// 				'userName' : userName = this.day +" "+this.dayNo
+// 				}	;			
+	
+// tomorrow = { 
+// 				'time' : time = today.time,
+// 				'dayNo' :  dayNo = time.getDate() + 1,
+// 				'year' : time.getFullYear(),
+// 				'month' :  time.getMonth(),
+// 				'day' :  time.toString().slice(0,3),
+// 				'hour' :  time.getHours(),
+// 				'minute' : time.getMinutes(),
+// 				'second' : time.getSeconds(),
+// 				'userName' : userName = this.day +" "+this.dayNo
+// 				}	;			
+
+// b0 = Player(yesterday);
+// b2 = Player(tomorrow);	
+b1 = Player(today);
+// a0 = Player(daybeforeb);
+// a2 = Player(dayafterb);	
+BIRTH = Player(birth);
+// tomorrow = modelday(b1);	
+// dab = modelday(BIRTH);
+
+ ////////////////////////////////////////////////////
+// DISPLAY PLANET INTERPOLATIONS ON SCREEN VIA DOM MANIPULATION 
+///////////////////////////////////////////////////
+   var confirm = document.getElementById('confirm');
+             var interpolation = document.getElementById('interpolation');
+             var current_day_interpolation = document.getElementById('current_day_interpolation');
+             var next = document.getElementById('next');
+                       
+// question1.textContent ='';
+ confirm.textContent = "Hi " + BIRTH.username + "! Just to confirm, I have your birthday as  " +BIRTH.dayname+ ",   " +BIRTH.monthname+ "  "+BIRTH.dayNo +", "+BIRTH.year +".";
+ interpolation.textContent = "Based on the info given, here is a brief summary. On the " +BIRTH.dayname+" of "+
+ BIRTH.monthname+ " "+BIRTH.dayNo+ " "+ BIRTH.year+ ", at around "+birth.hour +":"+birth.minute +" "+ampm+ ", Sun sign was "+BIRTH.narrative +".";
+ current_day_interpolation.textContent =  "At the moment... "+b1.narrative //+" and YESTERDAY ... " +b0.narrative +" and EVEN TOMORROW ... " +b2.narrative+"."  
+//script end
+
+//HIDE FORM AFTER SUBMISSION
+document.getElementById('dob_input').setAttribute('style','display: none');
+    
+}
+
+ </script> 
+     <script src="years.js"></script>  
+<!--style is the fashion director of this site or service. 
+       Ideally this will be loaded from a file located externally to this one.
+-->
+<style> 
+    .form {width: 50%; padding: 1%}
+    .name_box {width: 95%; margin: 1% 0; padding: 1%}
+    .time_box {width: 35%;margin: 0% 2% 0% 0%;padding: 1%; display: block;float: left;}
+    .dob_box{ width: auto; margin: 1%; display: block;position:relative; float:left;margin-right: 3%;}
+    .tob {width:85px;  margin: 0%; display: block;position:relative; float:left;padding: 1%;}
+     .pob{width: auto;}
+     .ampm{width: auto;}
+      .submit {width: 99%; }   
+      .fieldset {border: 2px solid blue; width: 45%; display: block; padding: 1%}
+    .image_click{width: 30%; margin: 0 auto; display: block; position:relative }
+    </style>
+ </head>
+<!--the body is the visible part of the webpage or service. It is the place of UX/UI
+    user design and interface. This body calls on the head to run its script with the
+    onload HTML attribute 
+--><body onload ="chartProcess()">
+     <fieldset class="fieldset" id ="fieldset">
+		 <legend id="modifiedDate">  </legend>
+		 <h1>innerCoordinates.nyc </h1> 
+		 <form class="form" name="dob_input" id="dob_input" action="coordinates.html" method="GET" onsubmit="disappear()">
+		    <h2 id="ask_dob"> Please share your name and select your date of birth.</h2>
+		   <div class="tob, ampm">
+		    <label > What part of the day where you born? <label>
+		    <br/>
+		    <input type = 'radio' value="am" for ="" id="am" name="ampm" class="ampm"/>
+			<label for = "am"> Morning <label> &nbsp;&nbump; &nbump; &nbsp;
+			<label for = "pm"> Evening <label>
+  			<input type = 'radio' value="pm" for ="" id="pm" name="ampm" class="ampm"/>
+  			<hr/>
+		   </div>
+		   <div class="pob">
+			<label for="pob">Birth Place: Where is home for you?</label><br/>
+			<select id="pob" name="pob" size="4">
+			  <option value=00 >-------</option> 		  
+			  <option value=00 >CANADA</option> 
+       		  <option value=04 >CANADA: Alert</option>
+       		  <option value=08 >CANADA: Calgary</option>
+			  <option value=06 >CANADA: Churchill</option>
+              <option value=04 >CANADA: Goose Bay</option>
+       		  <option value=05 >CANADA: Montreal</option>
+       		  <option value=08 >CANADA: Mould Bay</option>
+			  <option value=08 >CANADA: Vancouver</option>
+              <option value=06 >CANADA: Winnipeg</option>
+			  <option value=00 >-------</option> 
+              <option value=00 >MEXICO</option> 
+			  <option value=08 >MEXICO: Hermosillo</option>
+			  <option value=06 >MEXICO: Managua</option>
+			  <option value=07 >MEXICO: Mexico City</option>
+ 			  <option value=00 >-------</option>   
+			  <option value=00 >USA</option>
+			  <option value=06 >USA: Alabama</option>   
+              <option value=09 >USA: Alaska: Juneau</option> 
+       		  <option value=10 >USA: Alaska: Anchorage</option>
+              <option value=10 >USA: Alaska: Barrow</option>
+			  <option value=11 >USA: Alaska: Nome</option>
+			  <option value=06 >USA: Arkansas</option>
+			  <option value=07 >USA: Arizona</option>			  			  
+			  <option value=08 >USA: California</option>
+			  <option value=07 >USA: Colorado</option>
+			  <option value=05 >USA: Delaware</option>
+			  <option value=05 >USA: Florida</option>
+			  <option value=06 >USA: Florida Panhandle</option>	
+			  <option value=05 >USA: Georgia</option>
+			  <option value=10 >USA: Hawaii East</option>     	  
+			  <option value=11 >USA: Hawaii West</option>  
+		      <option value=06 >USA: Illinois</option>			  		  
+			  <option value=07 >USA: Idaho</option>
+			  <option value=08 >USA: Idaho North Tip</option>
+			  <option value=05 >USA: Indiana</option>
+			  <option value=06 >USA: Indiana NorthWest Tip</option>					  	
+			  <option value=06 >USA: Indiana SouthWest Tip</option>				  	
+			  <option value=06 >USA: Iowa</option>		
+			  <option value=06 >USA: Kansas </option>
+			  <option value=07 >USA: Kansas West Tip</option>
+			  <option value=05 >USA: Kentucky East</option>
+			  <option value=06 >USA: Kentucky West</option>
+			  <option value=06 >USA: Louisiana</option>			  			  
+			  <option value=05 >USA: Maine</option>
+			  <option value=05 >USA: Massachussetts</option>			  
+			  <option value=05 >USA: Maryland</option>
+			  <option value=05 >USA: Michigan</option>				  
+			  <option value=06 >USA: Minnesotta</option>	
+			  <option value=06 >USA: Mississippi</option>
+			  <option value=06 >USA: Missouri</option>				  				  			  
+			  <option value=07 >USA: Montana</option>			  
+			  <option value=06 >USA: Nebraska East</option>
+			  <option value=07 >USA: Nebraska West</option>				  
+			  <option value=08 >USA: Nevada</option>		
+			  <option value=05 >USA: New Hampshire</option>	
+	          <option value=07 >USA: New Mexico</option>		  
+			  <option value=05 >USA: New Jersey</option>
+			  <option value=05 >USA: New York</option>		  
+			  <option value=05 >USA: North Carolina</option>
+			  <option value=06 >USA: North Dakota</option>
+			  <option value=07 >USA: North Dakota SouthWest</option>			  			    			 
+			  <option value=05 >USA: Ohio </option>				  
+			  <option value=08 >USA: Oregon</option>
+			  <option value=06 >USA: Oklahoma</option>
+			  <option value=05 >USA: Pennsylvania</option>	
+			  <option value=05 >USA: Puerto Rico</option>				  		  
+			  <option value=05 >USA: Rhode Island</option>			  			  
+			  <option value=05 >USA: South Carolina</option>
+			  <option value=06 >USA: South Dakota East</option>			  
+			  <option value=07 >USA: South Dakota West</option>
+			  <option value=05 >USA: Tennessee East</option>	
+			  <option value=06 >USA: Tennessee West</option>				  			  			  
+			  <option value=06 >USA: Texas</option>
+			  <option value=07 >USA: Texas South West Tip</option>							  	  
+			  <option value=07 >USA: Utah</option>
+			  <option value=05 >USA: Vermont</option>
+			  <option value=05 >USA: Virginia</option>
+              <option value=08 >USA: Washington</option>
+			  <option value=06 >USA: Wisconsin</option>	              
+			  <option value=05 >USA: West Virginia</option>
+			  <option value=07 >USA: Wyoming</option>			  
+			  <option value=00 >-------</option> 	
+    	     <option value=04 >ARGENTINA: East</option>	
+	          <option value=05 >ARGENTINA: West</option>		          		  
+	          <option value=03 >BRAZIL: East </option>
+	          <option value=04 >BRAZIL: Central </option>	          
+	          <option value=05 >BRAZIL: West </option>	          
+	          <option value=04 >BOLIVIA: East</option>	          
+	          <option value=05 >BOLIVIA: La Paz</option> 	 	          
+	          <option value=05 >BOLIVIA: West</option>
+			  <option value=04 >CARIBBEAN: All Islands</option>
+			  <option value=05 >CHILE: </option>
+			  <option value=05 >COLUMBIA: </option>
+			  <option value=06 >COSTA RICA: </option>
+			  <option value=04 >CUBA: East</option>
+			  <option value=05 >CUBA: Havana</option>			  
+	          <option value=05 >EQUADOR: </option> 
+			  <option value=03.5 >FRENCH GUIANA: </option>
+	          <option value=06 >GUATEMALA: </option>			  
+			  <option value=04 >GUYANA: </option>
+	          <option value=06 >HONDURAS: </option>	
+			  <option value=06 >NICARAGUA:</option>	          			  
+	          <option value=05 >PANAMA: </option>  
+	          <option value=04 >PARAGUAY: </option> 			  			  
+	          <option value=05 >PERU: </option> 
+			  <option value=04 >SURINAME: </option>	
+	          <option value=04 >URUGUAY: </option> 	  	          
+	          <option value=05 >VENEZUELA: East </option>			  
+	          <option value=04 >VENEZUELA: West</option>	
+			</select>
+		</div>
+		<label for ="finitial">First Name (Initial)</label>
+		<input type="text" name="finitial" id="finitial" class="name_box" maxlength="">
+		<label for ="linitial">Last Name (Initial) </label>
+		<input type="text" name="linitial" id="linitial" class="name_box" maxlength="">
+		<div class="dob_box">
+			<label for="dob-month">Birth Month</label><br/>
+			<select id="month" name="dob_month" size="4">
+			  <option value=00 >January</option>
+			  <option value=01 >February</option>
+			  <option value=02 >March</option>
+			  <option value=03 >April</option>
+			  <option value=04 >May</option>
+			  <option value=05 >June</option>
+			  <option value=06 >July</option>
+			  <option value=07 >August</option>
+			  <option value=08 >September</option>
+			  <option value=09 >October</option>
+			  <option value=10 >November</option>
+			  <option value=11 >December</option>
+			</select>
+		</div>
+		<div class="dob_box">
+			<label for="dob-day">Birth Date</label><br/>
+			<select id="day" name="dob_day" size="4">
+			  <option value=00 >1</option>
+			  <option value=01>2</option>
+			  <option value=02>3</option>
+			  <option value=03>4</option>
+			  <option value=04>5</option>
+			  <option value=05>6</option>
+			  <option value=06>7</option>
+			  <option value=07>8</option>
+			  <option value=08>9</option>
+			  <option value=09>10</option>
+			  <option value=10>11</option>
+			  <option value=11>12</option>
+			  <option value=12>13</option>
+			  <option value=13>14</option>
+			  <option value=14>15</option>
+			  <option value=15>16</option>
+			  <option value=16>17</option>
+			  <option value=17>18</option>
+			  <option value=19>19</option>
+			  <option value=19>20</option>
+			  <option value=20>21</option>
+			  <option value=21>22</option>
+			  <option value=22>23</option>
+			  <option value=23>24</option>
+			  <option value=24 >25</option>
+			  <option value=25>26</option>
+			  <option value=26>27</option>
+			  <option value=27>28</option>
+			  <option value=28>29</option>
+			  <option value=29>30</option>
+			  <option value=30>31</option>
+			</select>
+		</div>
+		<div class="dob_box">
+		<label for="dob-year">Birth Year</label><br/>
+		<select id="years" name="dob_year" size="4">
+			  <option value=1950>1950</option>
+			  <option value=1951>1951</option>
+			  <option value=1952>1952</option>
+			  <option value=1953>1953</option>
+			  <option value=1954>1954</option>
+			  <option value=1955>1955</option>
+			  <option value=1956>1956</option>
+			  <option value=1957>1957</option>
+			  <option value=1958>1958</option>
+			  <option value=1959>1959</option>
+			  <option value=1960>1960</option>
+			  <option value=1961>1961</option>
+			  <option value=1962>1962</option>
+			  <option value=1963>1963</option>
+			  <option value=1964>1964</option>
+			  <option value=1965>1965</option>
+			  <option value=1966>1966</option>
+			  <option value=1967>1967</option>
+			  <option value=1968>1968</option>
+			  <option value=1969>1969</option>
+			  <option value=1970>1970</option>
+			  <option value=1971>1971</option>
+			  <option value=1972>1972</option>
+			  <option value=1973>1973</option>
+			  <option value=1974>1974</option>
+			  <option value=1975>1975</option>
+			  <option value=1976>1976</option>
+			  <option value=1977>1977</option>
+			  <option value=1978>1978</option>
+			  <option value=1979>1979</option>
+			  <option value=1980>1980</option>
+			  <option value=1981>1981</option>
+			  <option value=1982>1982</option>
+			  <option value=1983>1983</option>
+			  <option value=1984>1984</option>
+			  <option value=1985>1985</option>
+			  <option value=1986>1986</option>
+			  <option value=1987>1987</option>
+			  <option value=1988>1988</option>
+			  <option value=1989>1989</option>
+			  <option value=1990>1990</option>
+			  <option value=1991>1991</option>
+			  <option value=1992>1992</option>
+			  <option value=1993>1993</option>
+			  <option value=1994>1994</option>
+			  <option value=1995>1995</option>
+			  <option value=1996>1996</option>
+			  <option value=1997>1997</option>
+			  <option value=1998>1998</option>
+			  <option value=1999>1999</option>
+			  <option value=2000>2000</option>
+			  <option value=2001>2001</option>
+			  <option value=2002>2002</option>
+			  <option value=2003>2003</option>
+			  <option value=2004>2004</option>
+			  <option value=2005>2005</option>
+			  <option value=2006>2006</option>
+			  <option value=2007>2007</option>
+			  <option value=2008>2008</option>
+			  <option value=2009>2009</option>
+			  <option value=2010>2010</option>
+			  <option value=2011>2011</option>
+			  <option value=2012>2012</option>
+			  <option value=2013>2013</option>
+			  <option value=2014>2014</option>
+			  <option value=2015>2015</option>
+			  <option value=2016>2016</option>
+			  <option value=2017>2017</option>
+			  <option value=2018>2018</option>
+			  <option value=2019>2019</option>
+			  <option value=2020>2020</option>
+			  <option value=2021>2021</option>
+		</select>
+		</div>
+		<hr style="clear:both"/>
+		<label class="time_box" for ="time_of_birth">About what time were you born?</label>
+		<div class="tob">
+			<label for="tob-hour">Hour</label><br/>
+			<select id="tob-hour" name="h" size="4">
+			  <option value=01>1</option>
+			  <option value=02>2</option>
+			  <option value=03>3</option>
+			  <option value=04>4</option>
+			  <option value=05>5</option>
+			  <option value=06>6</option>
+			  <option value=07>7</option>
+			  <option value=08>8</option>
+			  <option value=09>9</option>
+			  <option value=10>10</option>
+			  <option value=11>11</option>
+			  <option value=12>12</option>
+			</select>
+		</div>
+		<div class="tob">
+			<label for="tob-minute">Minute</label><br/>
+			<select id="tob-minute" name="m" size="4">
+			  <option value=01>1</option>
+			  <option value=02>2</option>
+			  <option value=03>3</option>
+			  <option value=04>4</option>
+			  <option value=05>5</option>
+			  <option value=06>6</option>
+			  <option value=07>7</option>
+			  <option value=08>8</option>
+			  <option value=09>9</option>
+			  <option value=10>10</option>
+			  <option value=11>11</option>
+			  <option value=12>12</option>
+			  <option value=13>13</option>
+			  <option value=14>14</option>
+			  <option value=15>15</option>
+			  <option value=16>16</option>
+			  <option value=17>17</option>
+			  <option value=18>18</option>
+			  <option value=19>19</option>
+			  <option value=20>20</option>
+			  <option value=21>21</option>
+			  <option value=22>22</option>
+			  <option value=23>23</option>
+			  <option value=24>24</option>
+			  <option value=25>25</option>
+			  <option value=26>26</option>
+			  <option value=27>27</option>
+			  <option value=28>28</option>
+			  <option value=29>29</option>
+			  <option value=30>30</option>
+			  <option value=31>31</option>
+			  <option value=32>32</option>
+			  <option value=33>33</option>
+			  <option value=34>34</option>
+			  <option value=35>35</option>
+			  <option value=36>36</option>
+			  <option value=37>37</option>
+			  <option value=38>38</option>
+			  <option value=39>39</option>
+			  <option value=40>40</option>
+			  <option value=41>41</option>
+			  <option value=42>42</option>
+			  <option value=43>43</option>
+			  <option value=44>44</option>
+			  <option value=45>45</option>
+			  <option value=46>46</option>
+			  <option value=47>47</option>
+			  <option value=48>48</option>
+			  <option value=49>49</option>
+			  <option value=50>50</option>
+			  <option value=51>51</option>
+			  <option value=52>52</option>
+			  <option value=53>53</option>
+			  <option value=54>54</option>
+			  <option value=55>55</option>
+			  <option value=56>56</option>
+			  <option value=57>57</option>
+			  <option value=58>58</option>
+			  <option value=59>59</option> 
+			</select>
+		</div>
+		<hr style="clear:both"/>
+<!--		<input id='time_of_birth' name='time_of_birth' type="time" width="90%" class="time_box" form ="dob_input"/>
+-->	<!-- It makes no sense to label this hidden field. Fix with best practice.-->
+		<label for ="hidden"><input type="hidden" value='123' id="hidden"/> </label>
+		  <input  class="submit" id="submit" type="submit"  alt=" " value="see your chart"/>
+	 </form>
+	 <h3 id="confirm"> </h3>
+     <p id="interpolation"> </p>
+     <table id="table">
+		<tr id="current_day_interpolation"> </tr>
+	 </table>
+    </fieldset>  
+  </body>
+<!--scripts might prevent HTML elements from rendering. Won't happen here, 
+but sometimes it's good practice to add script below to allow bode elements to load.
+This script disappears form to make room for planet interpolations and interpretations.
+--><script>
+       function disappear(){
+	z = document.getElementById('dob_input').style.display = 'none';
+    // DELETE z =	document.getElementById('dob_input').setAttribute('style','display: none')
+    // DELETE z = document.getElementsByTagName('form').item([0]).setAttribute('style','display:none');
+       return z;
+       }
+ </script>
+</html>
+
+<!--
+
+/*
+user = function(year,month,day){ 
+	// for next day of dec 31, go to Jan 1 of next year
+	if ((day == this.selectYear(this.year)[this.month].length) && (this.month == this.selectYear(this.year).length -1 ))
+	            {
+					year = KeyYear +1;
+				year = KeyYear.toString();
+				user_info = selectYear(year)[0][0];}
+    // for last day of month, go to day 1 of next month
+	else if ((day == selectYear(year)[month].length || (day == undefined)) && (month != selectYear(dear).length ))
+	            { day = 0; month = month * 1 + 1;
+				year = KeyYear.toString();
+				user_info = selectYear(year)[month][0];}
+    // for previous day of jan 1, go to dec 31 of prev year
+	else if ((day == -1) && (month == 0 ))
+	            {
+				KeyYear = KeyYear -1;
+				year = KeyYear.toString();
+				user_info = selectYear(year)[11][30];}
+    // for previous day of month day 1, go to last of prev month
+	else if ((day == -1) && (month != 0 ))
+	            {
+				month = month - 1;
+				year = year.toString();
+                dayLength = selectYear(year)[month].length; 
+				user_info = selectYear(year)[+month][+dayLength - 1];}
+
+	else {year = year; month =  month; day = day;
+		  user_info = selectYear(year)[+month][+day]}
+         day = user_info.Day;
+		  
+		
+	return user_info ;
+		
+};
+
+   
+    // TASK:  IF USER TOB ON DEC 31 REVERTS TO JAN 1, DATA IS  A BIT OFF...FIX CODE BELOW TO SOLVE
+        // if code auto chooses next day when day# is 32 of Dec
+        else if ((tDay == 32) && (tMonth == 11 ))
+                    {
+                    tDay = tDay - 32;
+                    tMonth = tMonth - 11;
+                    tYear = xYear +1;
+                    tYear = tYear.toString();
+                    user_info = selectYear(tYear)[0][0];}
+        // if code auto chooses next day when day# is 32 for all months except Dec
+        else if ((tDay == 32) && (tMonth < 11 ))
+                    {
+                    tDay = tDay - 32;
+                    aMonth = tMonth + 1;
+                    tYear = xYear;
+                    tYear = tYear.toString();
+                    user_info = selectYear(tYear)[tMonth][tDay];}
+    
+        // otherwise just select the next day 
+        else {tYear = tYear; tMonth = tMonth; tDay = tDay;
+              user_info = selectYear(tYear)[+tMonth][+tDay]}
+             day = user_info.Day;
+       
+        return user_info ;
+            
+    };
+    
+	
+  // create new object to hold comparisons...?
+    compareThisPlanets = function details(x){
+    
+    // AS BASE GET startPlanetSign & endPlanetSign 
+    a = dayOfBirth[0]; // get startPlanet
+    b = dayAfterBirth[0]; // get endPlanet
+    // DECLARATIONS
+    startPlanetSign = a[x].sign;  // filter by Sign 
+    endPlanetSign = b[x].sign;  // filter by Sign
+    startPlanetSignNumber = a[x].signNo;  // filter by SignNo 
+    endPlanetSignNumber = b[x].signNo;  // filter by SignNo
+    startPlanetDegree = a[x].degree;  // filter by Degree
+    endPlanetDegree = b[x].degree;  // filter by Degree
+    startPlanetMinute = a[x].minute;  // filter by Minute
+    endPlanetMinute = b[x].minute;  // filter by Minute
+    startPlanetSecond = a[x].second;  // filter by Second 
+    endPlanetSecond = b[x].second;  // filter by Second
+    startdayNumber = user0.DayN,   
+    enddayNumber   = user1.DayN, 
+    motion = "";
+    
+    // IDENTIFY RETROGRADE
+    shiftedSignNumber = endPlanetSignNumber - startPlanetSignNumber;
+    if( (shiftedSignNumber ==0 && endPlanetDegree == startPlanetDegree) && (endPlanetMinute < startPlanetMinute || (endPlanetMinute == startPlanetMinute && endPlanetSecond < startPlanetSecond)))
+    {motion ="r"}
+    else if(shiftedSignNumber ==0 && endPlanetDegree < startPlanetDegree)
+    {motion ="r"}
+    else if(shiftedSignNumber < 0)
+    {motion ="r"}
+    else motion ="d";
+    
+    // IDENTIFY SHIFTS
+    shiftedSign  = endPlanetSign +" "+ startPlanetSign;
+    shiftedDegree = function details(){ 
+                            if(endPlanetDegree != startPlanetDegree && endPlanetSign == startPlanetSign){
+                            shiftedPlanetDegrees = Math.abs(endPlanetDegree - startPlanetDegree)}
+                            else if(endPlanetDegree == startPlanetDegree && endPlanetSign != startPlanetSign){
+                            shiftedEndPlanetDegree = 30 + endPlanetDegree;
+                            shiftedPlanetDegrees = Math.abs(shiftedEndPlanetDegree - startPlanetDegree)}
+                            else if (endPlanetDegree != startPlanetDegree && endPlanetDegree == 0 )
+                            { shiftedStartPlanetDegree = Math.abs(30 - startPlanetDegree);
+                            shiftedEndPlanetDegree = Math.abs(0 - endPlanetDegree);
+                            shiftedPlanetDegrees = Math.abs(shiftedEndPlanetDegree - shiftedStartPlanetDegree)}
+                            else if (endPlanetDegree != startPlanetDegree && startPlanetDegree == 0 )
+                            { shiftedPlanetDegrees = Math.abs(startPlanetDegree + endPlanetDegree)}
+                            else {shiftedStartPlanetDegree = Math.abs(30 - startPlanetDegree);
+                            shiftedEndPlanetDegree = Math.abs(30 - endPlanetDegree);
+                            shiftedPlanetDegrees = Math.abs(shiftedStartPlanetDegree + endPlanetDegree)};
+                    return shiftedPlanetDegrees;
+                                }
+    shiftedDegree();
+    
+    shiftedMinute = function details(){
+                            if(endPlanetSign == startPlanetSign)
+                                 { shiftedPlanetMinutes  = Math.abs(endPlanetMinute - startPlanetMinute);}			
+                            else if(endPlanetSign != startPlanetSign )
+                                {shiftedStartPlanetMinute = 60 - startPlanetMinute ;
+                                shiftedEndPlanetMinute = endPlanetMinute + 0;
+                                shiftedPlanetMinutes  = shiftedStartPlanetMinute + shiftedEndPlanetMinute;}        
+                    return shiftedPlanetMinutes;
+                              }
+    shiftedMinute();
+    shiftedSecond = function details(){
+                            if(endPlanetSecond == startPlanetSecond){
+                                shiftEndPlanetSecond = Math.abs(60 + endPlanetSecond)
+                                shiftedPlanetSeconds = Math.abs(endPlanetSecond - startPlanetSecond)}
+                            else shiftEndPlanetSecond = Math.abs(60 - endPlanetSecond);
+                                 shiftStartPlanetSecond = Math.abs(60 - startPlanetSecond);
+                                shiftedPlanetSeconds = shiftEndPlanetSecond - shiftStartPlanetSecond;
+                    return shiftedPlanetSeconds;      
+                            }
+    shiftedSecond();
+    
+    PTC = (firstBreath.minutes.realminute /60 + firstBreath.hours.realhour) / 24;
+    
+    // PTC = {'constant': [(firstBreath.minutes.realminute /60 + firstBreath.hours.realhour) / 24]};
+    
+    //PT 2  PTC
+    // Planet Travel Constant is key to planet interpolations and Projections.
+    //PTC = {'constant': [(firstBreath.minutes.realminute /60 + firstBreath.hours.realhour) / 24]};
+    
+    ptc = function (){
+                // grab dob info and create a representation of planet precession snaphot  
+                firstBreath;
+                PTC = {'constant': [(firstBreath.minutes.realminute / 60 + firstBreath.hours.realhour) / 24]};
+                // aka  PTC.constant 
+                // planet names as array
+                 x = ['sun', 'moon', 'mercury','venus', 'mars', 'jupiter', 'saturn', 'neptune','uranus', 'pluto']
+                 // create object array via loop
+                 i =0; 
+                 for(i = 0;i < x.length; i++ )  
+                     { compareThisPlanets(x)
+                           signNoDiff = ['FinalSignNumber'][1] - ['FinalSignNumber'][0];
+                           degDiff = ['FinalDegree'][1] - ['FinalDegree'][0]; 
+                           // processing degrees from diff signs...
+                           minDiff = ['FinalMinute'][1] - ['FinalMinute'][0];
+                              // processing degrees from diff signs...
+                        houDiff = 0 - 0;
+                        trvlSi =  signNoDiff * 60 ;// to translate degrees in minutes
+                        trvlMi =   degDiff * 60 ;// translate into minutes
+                        trvlSe =   secDiff * 60 ;// tranlate into minutes
+                        trvlHo =   houDiff * 60 ;// tranlate hours into minutes
+                        trvlDa =   houDiff / 24  ;// translate into days 
+                        }
+                         //travel in minutes   
+                        total_Travel = [trvlHo + trvlMi + trvlSe + trvlSe + minDiff];
+        //				planetTravel = [].push()
+          return total_Travel;
+                }
+    
+    ptc();
+    
+    deltaSign =[startPlanetSign,endPlanetSign];
+    deltaSignNumber =[Math.abs(startPlanetSignNumber - endPlanetSignNumber ),startPlanetSignNumber, endPlanetSignNumber];
+    deltaMinute =[Math.abs(startPlanetMinute - endPlanetMinute), startPlanetMinute, endPlanetMinute];
+    deltaDegree = [Math.abs(startPlanetDegree - endPlanetDegree ),startPlanetDegree, endPlanetDegree];
+    deltaSeconds = [Math.abs(startPlanetSecond - endPlanetSecond),startPlanetSecond, endPlanetSecond];
+    
+    penUltimateSign = deltaSign;
+    penUltimateSignNumber =[shiftedSignNumber, deltaSignNumber];
+    penUltimateDegree = [PTC * shiftedPlanetDegrees, deltaDegree];
+    penUltimateMinute = [shiftedPlanetMinutes * PTC, deltaMinute];
+    penUltimateSeconds = [shiftedPlanetSeconds * PTC, deltaSeconds];
+    
+    if(penUltimateSignNumber[0] == 0){FinalSign = penUltimateSign[0] ; FinalSignNumber = penUltimateSignNumber[1][1]} 
+    else if(penUltimateSignNumber[0] == 1 && ((penUltimateDegree[0] + startPlanetDegree) < 29)){FinalSign = penUltimateSign[0]; FinalSignNumber = penUltimateSignNumber[1][1]} 
+    else if(penUltimateSignNumber[0] == 1 ){FinalSign = penUltimateSign[1]} else {FinalSign = penUltimateSign ; FinalSignNumber = penUltimateSignNumber[1][2]}
+    // show  both signs as an error
+     
+    if(penUltimateDegree[0] + startPlanetDegree > 29){FinalDegree = Math.abs(penUltimateDegree[0] - 30); } else {FinalDegree = penUltimateDegree[0] + startPlanetDegree};
+    //ISSUE IS HERE FIX THE SUN CALC
+    if(penUltimateMinute[0] > 59){FinalMinute = (60 - penUltimateMinute[0]) && (FinalDegree = FinalDegree + 1)} else {FinalMinute = penUltimateMinute[0]};
+    FinalMinute = +FinalMinute.toFixed();
+    FinalSeconds = penUltimateSeconds[0];
+    FinalDegree = +FinalDegree.toFixed(0);
+    
+    return {'sign':FinalSign,'signNo':FinalSignNumber , 'degree':FinalDegree,
+            'minute':FinalMinute, 'seconds':FinalSeconds, 'direction': motion};
+    };
+   
+// TEST COMPARE WITH GLOBAL OBJECTS 'a' and 'b'
+c = {'sun':compareThisPlanets('sun'),'moon':compareThisPlanets('moon'),'mercury':compareThisPlanets('mercury'),
+	'venus':compareThisPlanets('venus'),'mars':compareThisPlanets('mars'),'jupiter':compareThisPlanets('jupiter'),
+	'saturn':compareThisPlanets('saturn'),'uranus':compareThisPlanets('uranus'),'neptune':compareThisPlanets('neptune'),
+	'pluto':compareThisPlanets('pluto'),'node':compareThisPlanets('node')
+	}
+// END INTERPOLATION LOGIC
+//MODIFIED DOCUMENT AREA
+           modifiedDate = document.getElementById('modifiedDate');
+           info = document.lastModified;
+           modifiedDate.innerHTML ="Last Modified: " +info; 
+
+// EXTRA TASK COLOR
+//Wacky code... make an 'ephemeral mood' that changes with time of day or delete entirely
+	 	function colors(x){		
+       z =	document.getElementById('fieldset').setAttribute('style','background-color: green')
+	   zz =	document.getElementsByTagName('p')[0].setAttribute('style','color: white')
+	
+	   x = 13;
+			if(x < 12){color = "less than 12"; }
+			else if(x == 12){color = "high noon colors";}
+			else if (x >12){color = 1216}
+			else if (x =>16){color = 160;}
+			else color = 0;
+				return color;
+             }
+colors();
+*/
+-->

@@ -1,0 +1,1905 @@
+<!doctype HTML> 
+<!--must declare this per protocol mandate-->
+<html>
+<head>
+<!-- the head is the hidden part of a website or service. Here is the home to instructional scripts, styles and meta data-->
+<!--add more meta -->
+<meta charset ="utf-8"/>
+<meta name="viewport" content="width=device-width">
+<meta name="author" content="david kene" />
+
+<!--style is the fashion director of this site or service. -->
+<!--Ideally this will be loaded from a file located externally to this one.-->
+<style> 
+	.form {width: 50%; padding: 1%}
+	.name_box {width: 95%; margin: 1% 0; padding: 1%}
+	.time_box {width: 35%;margin: 0% 2% 0% 0%;padding: 1%; display: block;float: left;}
+	.dob_box{ width: auto; margin: 1%; display: block;position:relative; float:left;margin-right: 3%;}
+	.tob {width:85px;  margin: 0%; display: block;position:relative; float:left;padding: 1%;}
+	.pob{width: auto;}
+	.ampm{width: auto;}
+	.submit {width: 99%; }   
+	.fieldset {border: 1px solid goldenrod; width: 95%; display: block; padding: 1%}
+	.image_click{width: 30%; margin: 0 auto; display: block; position:relative }
+	#table {margin: 0% 2%; padding: 1% 4% 0%;color:rgba(90,90,19,1); font-family:'laila'; background-color: transparent;}
+</style>
+
+
+<style>
+	* {margin: 0px; padding: 0px}
+	  html { margin: 0px, 0px; }
+	  body { margin: 0px, 0px; } 
+	  .full-body { margin: 1% ; width: 98%; height: auto; } 
+	  .float_left { float:left; }
+	  .float_right { float:right; }
+	  .block { display:block; }
+	  .space {margin: 15px 0px; font-size: 10px}
+	  .backcolor {z-index:999999; background-color: rgba(216, 177, 6, 0.986); }
+	  .half
+	  .percent_70 { width: 70%; }
+	  .percent_60 { width: 60%; }
+	  .percent_50 { width: 50%; }
+	  .percent_40 { width: 40%; }
+	  .percent_30 { width: 30%; }
+	  .percent_20 { width: 20%; }
+	  .percent_10 { width: 10%; }
+	  .percent_3 { width: auto;  padding: 1%; }
+	  .wide {width: 96%; padding:1%;margin: 1%}
+	  a:link {list-style: none; text-decoration: none; }
+	  a:hover {list-style: none; text-decoration: none; }
+	  a:visited {list-style: none; text-decoration: none; }
+	  a::after {list-style: none; text-decoration: none; }
+	/* mobile */
+	  .primary { width: 98%; padding:1%; background-color: rgba(99, 98, 98,1) }
+	  .secondary { width: 98%; padding:1%; background: green; }
+	  .tertiary { width: 98%; padding:1%; background: yellow; height: auto; overflow: hidden;}
+	
+	/* tablet */
+	  .primary { width: 68%; padding:1%; }
+	  .secondary { width: 28%; padding:1%; }
+	  .tertiary { width: 98%; padding:1%; }
+	
+	/* desktop */
+	  .primary { width: 51%; padding:2%; } 
+	  .secondary { width: 38%; padding:1%; }
+	  .tertiary { width: 98%; padding:1%; }
+	.clr {clear:both}
+	</style>
+
+<style>
+	@media only screen and (max-width:727px) {
+		* {margin: 0px; padding: 0px}
+		#table { color:rgba(27, 27, 27, 0.8);}
+	  	html { margin: 0px, 0px; background: rgba(204, 204, 204, 0.25);}
+	  	body { margin: 0px, 0px; color:rgba(27, 27, 27, 0.8); font-family:'laila';} 
+		  h1 {font-family:'roboto-bold'}
+	.primary {background: transparent; width: 98%; margin: 5% 0%; padding: 1%; border: 0px solid goldenrod; overflow:hidden; position: relative;top: 0px; left: 0px}
+	.secondary {background-color: transparent; width: 98%; margin: 5% 0%; padding: 1%; position: relative;top: 0px; left: 0px}
+	.tertiary { width: 98%; padding:1%; background: transparent; height: auto; }
+	.wide {width:95%; margin: 0% 1%; padding: 0%;  }
+		 .block  {border: 1px solid goldenrod;border-radius: 1px 15px 5px 10px;}
+		/*.float_left {width: inherit} */
+		.percent_60 {width:98%;margin:2% 1%;  position: relative;top: 0px; left: 0px; overflow: hidden}
+		.percent_50 {width:98%;margin:2% 1%;  position: relative;top: 0px; left: 0px; overflow: hidden}
+		.percent_20 {width:98%;margin:2% 1%; position: relative;top: 0px; left: 0px; overflow: hidden}
+		.fieldset {width:95%;margin: 0 1%; background: transparent;}
+		.percent_3 {position: fixed; width: 800%; bottom: 0%; left:0px;  height:40px; padding: 0px; }
+		.space {display: block; float:left; padding:0px 3px; margin: 0% 1%;font-size: 1em; overflow: hidden;position: relative;top: 0px; left: 0px}
+		.menu {position:relative; left: 0%; margin: 0px; font-size: 1.5em;}
+		/*.{}  */
+	/* .pluto {background-image: none}
+	.pluto:after {content: '&#9799'} */
+	.glyph {font-size: 10em; color: rgba(212, 176, 14, 0.1267);position: absolute; top: -40%; left: 80%}
+	p {margin: 2%}
+a:link > li { color: white;   height: 100px; left: 0px;top: 0px;padding: 0px 4px;border-radius:5px;} 
+a:visited > li {color: black;}
+a:hover > li{color: goldenrod; padding: 4px;border-radius:5px;background: white;}	
+a:active > li {color: black;}
+h6 {text-align: right;padding-right: 4%; font-family:'laila';}
+.para{overflow-x: scroll;width: 200% ;display:inline}
+.prev {z-index:999; font-size: 3em;position: fixed;bottom:-20px; left: 1%;font-family:'roboto-bold'}
+.next {z-index:999; color: white; font-size: 3em;position: fixed;bottom:-20px; right: 1%; font-family:'roboto-bold'}
+
+.prev > a:link {color:white}
+.next > a:link {color:white}
+.prev > a:visited {color:grey}
+.next > a:visited {color:grey}
+.prev > a:hover {color:black}
+.next > a:hover {color:black}
+.prev > a:active {color:green}
+.next > a:active {color:green}
+}
+
+/* left from 0 to -70 make menu rotate. at */
+</style>
+
+<style>
+@font-face {font-family:'laila'; src: url('fonts/Laila/Laila-Regular.ttf'); font-weight:normal;}
+@font-face {font-family:'londrina'; src: url('fonts/Londrina_Outline/LondrinaOutline-Regular.ttf'); font-weight:normal;}
+@font-face {font-family:'philosopher'; src: url('fonts/Philosopher/Philosopher-Bold.ttf'); font-weight:normal;}
+@font-face {font-family:'telex'; src: url('fonts/Telex/Telex-Regular.ttf'); font-weight:normal;}
+@font-face {font-family:'roboto'; src: url('fonts/Roboto_Slab/RobotoSlab-Thin.ttf'); font-weight:normal;}
+@font-face {font-family:'roboto-bold'; src: url('fonts/Roboto_Slab/RobotoSlab-Bold.ttf'); font-weight:bold;}
+
+</style>
+
+
+<style>
+
+.colorwrap {
+                /* border-top: 5px solid  transparent;
+                border-bottom: 0px solid red;
+                border-left: 5px solid transparent;
+                border-right: 0px solid red; */
+                position:absolute;
+                width: 1px;
+                height: 1px;
+                top: 0%;
+                left: 0%;
+                animation: animate-move 6s;
+                animation-iteration-count:infinite;
+            }
+            .colorwrap2 {
+                /* border-top: 1px solid  red;
+                border-bottom: 1px solid red;
+                border-left: 1px solid red;
+                border-right: 1px solid red; */
+                position:absolute;
+                width: 1px;
+                height: 1px;
+                top: 0%;
+                left: 0%;
+                
+                animation: animate-move 8.1s;
+                animation-iteration-count:infinite;
+            }
+
+            .colorwrap3 {
+                /* border-top: 1px solid  red;
+                border-bottom: 1px solid red;
+                border-left: 1px solid red;
+                border-right: 1px solid red; */
+                position:absolute;
+                width: 1px;
+                height: 1px;
+                top: 0%;
+                left: 0%;
+                animation: animate-move 8.2s;
+                animation-iteration-count:infinite;
+            }
+            .colorwrap3 {
+                /* border-top: 1px solid  red;
+                border-bottom: 1px solid red;
+                border-left: 1px solid red;
+                border-right: 1px solid red; */
+                position:absolute;
+                width: 1px;
+                height: 1px;
+                top: 0%;
+                left: 0%;
+                animation: animate-move 8.3s;
+                animation-iteration-count:infinite;
+            }
+            .colorwrap4 {
+                /* border-top: 1px solid  red;
+                border-bottom: 1px solid red;
+                border-left: 1px solid red;
+                border-right: 1px solid red; */
+                position:absolute;
+                width: 1px;
+                height: 1px;
+                top: 0%;
+                left: 0%;
+                animation: animate-move 10.4s;
+                animation-iteration-count:infinite;
+            }
+            .colorwrap5 {
+                /* border-top: 1px solid  red;
+                border-bottom: 1px solid red;
+                border-left: 1px solid red;
+                border-right: 1px solid red; */
+                position:absolute;
+                width: 1px;
+                height: 1px;
+                top: 0%;
+                left: 0%;
+                animation: animate-move 11.5s;
+                animation-iteration-count:infinite;
+            }
+            .colorwrap6 {
+                /* border-top: 1px solid  red;
+                border-bottom: 1px solid red;
+                border-left: 1px solid red;
+                border-right: 1px solid red; */
+                position:absolute;
+                width: 1px;
+                height: 1px;
+                top: 0%;
+                left: 0%;
+                animation: animate-move 8.6s;
+                animation-iteration-count:infinite;
+            }
+            .colorwrap7 {
+                /* border-top: 1px solid  red;
+                border-bottom: 1px solid red;
+                border-left: 1px solid red;
+                border-right: 1px solid red; */
+                position:absolute;
+                width: 1px;
+                height: 1px;
+                top: 0%;
+                left: 0%;
+                animation: animate-move 8.7s;
+                animation-iteration-count:infinite;
+            }
+            @keyframes animate-move {
+                0% {
+                    width: 1px;
+                    height: 1px;
+                    /* border: 5px solid red; */
+                    background: red;
+                    left: 0%;
+                    top: 0%;
+                }
+                12% {
+                    width: 100px;
+                    height: 1px;
+                    /* border: 5px solid red; */
+                    background: red;
+                    left: 50%;
+                    top: 0%;
+                }
+                24% {
+                   
+                    width: 1px;
+                    height: 1px;
+                    /* border: 5px solid orange; */
+                    background:  orange;
+                    left: 99%;
+                    top: 0%;
+                }
+                25% {
+                    width: 1px;
+                    height: 1px;
+                    /* border: 5px solid orange; */
+                    background:  orange;
+                    left: 99%;
+                    top: 0%;
+                }
+                26% {
+                    width: 1px;
+                    height: 1px;
+                    /* border: 5px solid orange; */
+                    background:  orange;
+                    left: 98%;
+                    top: 0%;
+                }
+                37% {
+                   width:1px;
+                    height: 100px;
+                    /* border: 5px solid red; */
+                    background: orange;
+                    left: 98%;
+                    top: 50%;
+                }
+                49% {
+                    width:1px;
+                    height: 1px;
+                    /* border: 5px solid yellow; */
+                    background:  yellow;
+                    left: 98%;
+                    top: 99%;
+                }
+                50% {
+                    width:1px;
+                    height: 1px;
+                    /* border: 5px solid yellow; */
+                    background:  yellow;
+                    left: 98%;
+                    top: 99%;
+                }
+                51% {
+                    width:1px;
+                    height: 1px;
+                    /* border: 5px solid yellow; */
+                    background:  yellow;
+                    left: 98%;
+                    top: 99%;
+                }
+                62% {
+                    width: 100px;
+                    height: 1px;
+                    /* border: 5px solid red; */
+                    background: yellow;
+                    left: 50%;
+                    top: 99%;
+                }
+                74% {
+                    width: 0%;
+                    height: 1px;
+                    /* border: 5px solid green; */
+                    background:  green;
+                    left: 0%;
+                    top: 99%;
+                }
+                75% {
+                    width: 1px;
+                    height: 1px;
+                    /* border: 5px solid green; */
+                    background:  green;
+                    left: 0%;
+                    top: 99%;
+                }
+                76% {
+                    width: 1px;
+                    height: 1px;
+                    /* border: 5px solid green; */
+                    background:  green;
+                    left: 0%;
+                    top: 99%;
+                }
+                87% {
+                    width: 1px;
+                    height: 100px;
+                    /* border: 5px solid red; */
+                    background: green;
+                    left: 0%;
+                    top: 50%;
+                }
+                99% {
+                    width: 1px;
+                    height: 1px;
+                    /* border-top: 5px solid blue; */
+                    background: blue;
+                    left: 0%;
+                    top: 0%;
+                }
+                100% {
+                    width: 1px;
+                    height: 1px;
+                    /* border-top: 5px solid blue; */
+                    background: blue;
+                    left: 0%;
+                    top: 0%;
+                }
+            }
+
+</style>
+<!--  script is the brains or thinking within the head section. Various scripting languages can direct this HTML. Right now Javascript is in charge.-->
+
+<script>
+function chartProcess()
+{
+	input 
+	= { 
+	'chartForm': chartForm = document.URL.split('&')
+	,
+	'year' :  year = +chartForm[6].slice(-4)
+	,
+	'month' :  month = +chartForm[4].slice(-2)
+	,
+	'monthname' : monthname = (month === 0) ? "January" 
+	:  (month ===  1 ) ? "February"
+	:  (month ===  2 ) ? "March"
+	:  (month ===  3 ) ? "April"
+	:  (month ===  4 ) ? "May"
+	:  (month ===  5 ) ? "June"
+	:  (month ===  6 ) ? "July"
+	:  (month ===  7 ) ? "August"
+	:  (month ===  8 ) ? "September"
+	:  (month ===  9 ) ? "October"
+	:  (month ===  10 ) ? "November"
+	:  (month ===  11 ) ? "December"
+	:  (month === 12 ) ? "January"
+	: "This month"  	
+	,
+	'monthlength'	: monthlength = (month == 0) ? 31 
+	: (month == 1) ? 28
+	: (month == 2) ? 31
+	: (month == 3) ? 30
+	: (month == 4) ?  31
+	: (month == 5) ? 30
+	: (month == 6) ? 31
+	: (month == 7) ? 31
+	: (month == 8) ? 31
+	: (month == 9) ? 30
+	: (month == 10) ? 30
+	: (month == 11) ? 31
+	: (month == 12) ? 31
+	: 0
+	,
+	'dayNo' :  dayNo = +chartForm[5].slice(-2)
+	,
+    'hour' :  hour = Number(chartForm[7].slice(-2))
+	,
+	'minute' : minute = Number(chartForm[8].slice(-2))
+	,
+	'second' : second = 0
+	,
+	'fname' :  fname = chartForm[2].slice(9) // should be chartForm[2].slice(9) to remove "finitial= from result
+	,
+	'lname' :  lname = chartForm[3].slice(9) // should be chartForm[2].slice(9) to remove "finitial= from result
+	,
+	'offset' : offset = +chartForm[1].slice(-2)
+	,
+	'offsethours' : offsethours = +chartForm[1].slice(-2)
+	,
+	'offsetminutes' : offsetminutes = +chartForm[1].slice(-2) % 1
+	,
+	'ampm' : ampm = chartForm[0].slice(-2)
+	,  			   
+	'home' : "home"
+	,
+	'mix' :  'special'
+	,
+	'hashID' : document.lastModified + this.mix
+	,
+	"military" : military = (ampm === 'pm') ? hour + 12 : hour
+	,
+	'utc': utc = 
+		{
+		'hour' :  hour = military + offsethours,
+		'minute' : minute = offsetminutes + minute
+		}
+    ,
+    'day' : day = new Date([month +1].toString() + "/"+ [dayNo +1].toString() +'/'+ year.toString()).toString().slice(0,3)
+	,	
+    'dayname' : dayname = (day === 'Sun') ? 'Sunday'
+	: (day ==='Mon') ? 'Monday'
+	: (day ==='Tue') ? 'Tuesday'
+	: (day ==='Wed') ? 'Wednesday'
+	: (day ==='Thu') ? 'Thursday'
+	: (day ==='Fri') ? 'Friday'
+	: (day ==='Sat') ? 'Saturday'
+	:'This day'    
+	,
+	"dayBY" : dayBY 
+		= {
+		'birth' : [second,minute, hour, dayNo, month, year], 
+		'military' : [second, minute, military, dayNo, month, year],
+		'utc' : [second,utc.minute, utc.hour, dayNo, month, year]
+		}
+	}						
+	birth 
+	= {
+        'M' : M    
+	= [31, 28, 31, 30,31, 30, 31, 31, 31, 30, 30, 31, 31]
+    ,
+	'_0input' : _0input = [input.year,input.month,input.dayNo]
+     ,   
+	'hourflag' : hourflag = (utc.hour > 23) ? 1 
+	: (utc.hour  < 1) ? 0 - 1  
+	: 0,
+	'dayNoflag' : dayNoflag = (input.dayNo >= M[month]) ? 1 
+	: (input.dayNo < 1) ? 0 - 1  
+	: 0,
+	'monthflag' :  monthflag = (input.month >= 11) ? 1 
+	: (input.month < 1) ? 0 - 1 
+	: 0,
+	'yearflag' : yearflag = (input.month >= 11 && input.utc.hour > 23) ? 1
+	: (input.month < 1 && input.dayNo === 0) ? 0 - 1
+	: 0	
+    ,
+	'second' : second = input.second
+    //'second' : second = (input.second > 59) ? input.second - 60 && input.utc.minute + 1 :input.second
+	,
+	'minute' : minute = input.utc.minute
+    //'minute' : minute = (input.utc.minute > 59) ? input.utc.minute - 60 && input.utc.hour + 1 : input.utc.minute
+	, 
+    'hour' :  hour = (hourflag > 0) ? input.utc.hour - 24
+	: (hourflag < 0) ? input.utc.hour + 24
+	: input.utc.hour
+    ,  // 'lastday' : lastday = [27,28,29,30]
+    'month' : month = (monthflag > 0 && dayNoflag > 0) ? input.month + 1 
+    // : (yearflag > 0 && monthflag > 0 ) ? "0" 
+    : (hourflag > 0 && dayNoflag > 0 && input.month < 11) ? input.month + 1
+    : (hourflag > 0 && dayNoflag > 0 && input.month === 11) ? 0 
+    // : (monthflag < 0 && input.dayNo === 0 ) ? 0
+    : (monthflag < 0 && dayNoflag < 0 && yearflag < 0) ? input.month - 1
+    : (input.dayNo === 28 && input.month === 1) ? input.month + 1
+    : (input.dayNo === 29 && input.month === 1) ? input.month + 1
+    : (input.dayNo === 30 && input.month === 1) ? input.month + 1
+    : (input.dayNo === 30 && input.month === 3) ? input.month + 1
+    : (input.dayNo === 30 && input.month === 5) ? input.month + 1
+    : (input.dayNo === 30 && input.month === 8) ? input.month + 1
+    : (input.dayNo === 30 && input.month === 10) ? input.month + 1 
+	: input.month	
+    ,
+    'dayNo' : dayNo = ( hourflag > 0 && dayNoflag > 0 ) ? 0 
+    : ( hourflag > 0 && dayNoflag === 0) ? input.dayNo - 1  
+	: (hourflag > 0 && dayNoflag < 0 && input.dayNo === 0) ? input.dayNo + 1 
+    : (hourflag > 0 && dayNoflag < 0) ? input.dayNo - 1 
+	: (dayNoflag > 0 && monthflag > 0 && yearflag > 0 && input.month === 11) ? "0" 
+    : (input.dayNo === 28 && input.month === 1) ? '0'
+    : (input.dayNo === 29 && input.month === 1) ? '0'
+    : (input.dayNo === 30 && input.month === 1) ? '0'
+    : (input.dayNo === 30 && input.month === 3) ? '0'
+    : (input.dayNo === 30 && input.month === 5) ? '0'
+    : (input.dayNo === 30 && input.month === 8) ? '0'
+    : (input.dayNo === 30 && input.month === 10) ? 0         
+	: input.dayNo
+	,
+    'year' : year = (yearflag > 0 && monthflag > 0 && dayNoflag > 0) ? input.year + 1
+    : (yearflag > 0 && input.month === 11 && dayNoflag > 0  && hourflag > 0) ? input.year + 1  
+	: input.year
+	,
+    '_1birth' : _1birth = [this.year,+this.month,+this.dayNo]
+	,  
+    '_3dayafterbirth' : _3dayafterbirth = (+_1birth[2] === 30 && +_1birth[1] === 11) ? [0, 0,+_1birth[0] +1]
+    : (+_1birth[2] === 27 && +_1birth[2] < 11) ? [+_1birth[1]+1, 0,+_1birth[0]]
+    : (+_1birth[2] === 28 && +_1birth[2] < 11) ? [+_1birth[1] +1, 0,+_1birth[0]]
+    : (+_1birth[2] === 29 && +_1birth[2] < 11) ? [+_1birth[1] +1, 0,+_1birth[0]]
+    : (+_1birth[2] === 30 && +_1birth[2] < 11) ? [+_1birth[1] +1, 0,+_1birth[0]]
+    : [_1birth[1], _1birth[2]+ 1,_1birth[0]]
+    ,
+    '_2daybeforebirth' : _2daybeforebirth = (+_1birth[2] === 0 && +_1birth[1] === 0) ? [11, 30, _1birth[0] - 1]
+    : (_1birth[2] === 0 && _1birth[1] < 11) ? [+_1birth[1] - 1, M[month-1]-1,+_1birth[0]]
+    : [_1birth[1] + 0, _1birth[2]- 1, _1birth[0]]
+    ,
+	'monthname' : monthname = (month === 0) ? "January" 
+	:  (month ===  1 ) ? "February"
+	:  (month ===  2 ) ? "March"
+	:  (month ===  3 ) ? "April"
+	:  (month ===  4 ) ? "May"
+	:  (month ===  5 ) ? "June"
+	:  (month ===  6 ) ? "July"
+	:  (month ===  7 ) ? "August"
+	:  (month ===  8 ) ? "September"
+	:  (month ===  9 ) ? "October"
+	:  (month ===  10 ) ? "November"
+	:  (month ===  11 ) ? "December"
+	:  (month === 12 ) ? "January"
+	: "This month"  	
+	,
+	'monthlength' : monthlength = (month === 0) ? 31 
+	: (month === 1) ? 28
+	: (month === 2) ? 31
+	: (month === 3) ? 30
+	: (month === 4) ?  31
+	: (month === 5) ? 30
+	: (month === 6) ? 31
+	: (month === 7) ? 31
+	: (month === 8) ? 31
+	: (month === 9) ? 30
+	: (month === 10) ? 30
+	: (month === 11) ? 31
+	: (month === 12) ? 31
+	: 0
+	,																								
+	'syear' : syear = input.year.toString()
+	,
+    'day' : day = new Date([+_1birth[1] +1].toString() + "/"+ [_1birth[2] +1].toString() +'/'+ syear).toString().slice(0,3)
+	,	
+    'dayname' : dayname = (day === 'Sun') ? 'Sunday'
+	: (day ==='Mon') ? 'Monday'
+	: (day ==='Tue') ? 'Tuesday'
+	: (day ==='Wed') ? 'Wednesday'
+	: (day ==='Thu') ? 'Thursday'
+	: (day ==='Fri') ? 'Friday'
+	: (day ==='Sat') ? 'Saturday'
+	:'This day'
+	, 
+	'dayb4' : {'month':_2daybeforebirth[0], 'dayNo': _2daybeforebirth[1],'year' : _2daybeforebirth[2]}
+	,
+	'_2day' : {'month':_1birth[1], 'dayNo': _1birth[2],'year' : _1birth[0]}
+	,
+	'_2moro' : {'month':_3dayafterbirth[0], 'dayNo': _3dayafterbirth[1],'year' : _3dayafterbirth[2]}
+	, 
+	'userName' : userName = input.fname +" "+input.lname
+	}
+ 	today 
+	= { 
+	'time' : time = new Date()
+	, 
+	'dayNo' :  dayNo = time.getDate() 
+	,
+	// 'dayNo_hmn' : dayNo_hmn = 17//(dayNo_hmn - 1)
+	// , 
+	'year' : year= time.getFullYear()
+	,
+	'syear' : syear = time.getFullYear().toString()
+	,
+	'month' :  month = time.getMonth()
+	,
+	'day' :  day = time.toString().slice(0,3)
+	,
+	'hour' : hour = time.getHours()
+	,
+	'minute' : minute = time.getMinutes()
+	,
+	'second' : second = time.getSeconds()
+	,
+	'userName' : userName = this.day +" "+this.dayNo
+	,
+	'dayname' :time.dayname = (day === 'Sun') ? 'Sunday'
+	: (day ==='Mon') ? 'Monday'
+	: (day ==='Tue') ? 'Tuesday'
+	: (day ==='Wed') ? 'Wednesday'
+	: (day ==='Thu') ? 'Thursday'
+	: (day ==='Fri') ? 'Friday'
+	: (day ==='Sat') ? 'Saturday'
+	:'This day'
+	,
+    'array' : this.array = [this.month,this.dayNo,this.year]
+	,	
+	'monthname' : monthname = (month === 0) ? monthname = "January" 
+	:  (month ===  1 ) ? monthname = "February"
+	:  (month ===  2 ) ? monthname = "March"
+	:  (month ===  3 ) ? monthname = "April"
+	:  (month ===  4 ) ? monthname = "May"
+	:  (month ===  5 ) ? monthname = "June"
+	:  (month ===  6 ) ? monthname = "July"
+	:  (month ===  7 ) ? monthname = "August"
+	:  (month ===  8 ) ? monthname = "September"
+	:  (month ===  9 ) ? monthname = "October"
+	:  (month ===  10 ) ? monthname = "November"
+	:  (month ===  11 ) ? monthname = "December"
+	:  (month === 12 ) ? monthname = "January"
+	: monthname = "This month"  	
+	,
+	'monthlength'	: monthlength = (month === 0) ? monthlength = 31 
+	: (month === 1) ? monthlength = 28
+	: (month === 2) ? monthlength = 31
+	: (month === 3) ? monthlength = 30
+	: (month === 4) ?  monthlength = 31
+	: (month === 5) ? monthlength = 30
+	: (month === 6) ? monthlength = 31
+	: (month === 7) ? monthlength = 31
+	: (month === 8) ? monthlength= 31
+	: (month === 9) ? monthlength = 30
+	: (month === 10) ? monthlength = 30
+	: (month === 11) ? monthlength = 31
+	: (month === 12) ? monthlength = 31
+	: monthlength = 0  	
+ 	};								
+
+	tomorrow 
+	= { 
+	'time' : today.time,
+	'dayNo' :  dayNo = (time.getDate() === 31) ? 30 : time.getDate() + 1,
+	'year' : year = time.getFullYear(),
+	'month' :  month = time.getMonth(),
+	'day' : day = new Date([month +1] + "/"+ [dayNo] +'/'+ year ).toString().slice(0,3),
+	'dayname' :time.dayname = (day === 'Sun') ? 'Sunday'
+	: (day ==='Mon') ? 'Monday'
+	: (day ==='Tue') ? 'Tuesday'
+	: (day ==='Wed') ? 'Wednesday'
+	: (day ==='Thu') ? 'Thursday'
+	: (day ==='Fri') ? 'Friday'
+	: (day ==='Sat') ? 'Saturday'
+	:'This day'
+	,
+	'hour' :  time.getHours(),
+	'minute' : time.getMinutes(),
+	'second' : time.getSeconds(),
+	'userName' : userName = this.day +" "+this.dayNo
+	 };
+
+	yesterday 
+	= { 
+	'time' : time = today.time,
+	'dayNo' :  dayNo = time.getDate()  ,//add - 1 // when testing - 2
+	'year' : time.getFullYear(),
+	'month' :  time.getMonth(),
+	'day' : day = new Date([month +1] + "/"+ [dayNo] +'/'+ year ).toString().slice(0,3),
+	'dayname' :time.dayname = (day === 'Sun') ? 'Sunday'
+	: (day ==='Mon') ? 'Monday'
+	: (day ==='Tue') ? 'Tuesday'
+	: (day ==='Wed') ? 'Wednesday'
+	: (day ==='Thu') ? 'Thursday'
+	: (day ==='Fri') ? 'Friday'
+	: (day ==='Sat') ? 'Saturday'
+	:'This day'
+	,
+	'hour' :  time.getHours(),
+	'minute' : time.getMinutes(),
+	'second' : time.getSeconds(),
+	'userName' : userName = this.day +" "+this.dayNo
+	}	;				
+
+	player = function Player (type)
+	{
+	userName = type.userName;
+	year = (type.year === 1950) ? Y1950
+	: (type.year === 1951 ) ? Y1951
+	: (type.year === 1952 ) ? Y1952
+	: (type.year === 1953 ) ? Y1953
+	: (type.year === 1954 ) ? Y1954
+	: (type.year === 1955 ) ? Y1955
+	: (type.year === 1956 ) ? Y1956
+	: (type.year === 1957 ) ? Y1957
+	: (type.year === 1958 ) ? Y1958
+	: (type.year === 1959 ) ? Y1959
+	: (type.year === 1960 ) ? Y1960
+	: (type.year === 1961 ) ? Y1961
+	: (type.year === 1962 ) ? Y1962
+	: (type.year === 1963 ) ? Y1963
+	: (type.year === 1964 ) ? Y1964
+	: (type.year === 1965 ) ? Y1965
+	: (type.year === 1966 ) ? Y1966
+	: (type.year === 1967 ) ? Y1967
+	: (type.year === 1968 ) ? Y1968
+	: (type.year === 1969 ) ? Y1969
+	: (type.year === 1970 ) ? Y1970
+	: (type.year === 1971 ) ? Y1971
+	: (type.year === 1972 ) ? Y1972
+	: (type.year === 1973 ) ? Y1973
+	: (type.year === 1974 ) ? Y1974
+	: (type.year === 1975 ) ? Y1975
+	: (type.year === 1976 ) ? Y1976
+	: (type.year === 1977 ) ? Y1977
+	: (type.year === 1978 ) ? Y1978
+	: (type.year === 1979 ) ? Y1979
+	: (type.year === 1980 ) ? Y1980
+	: (type.year === 1981 ) ? Y1981
+	: (type.year === 1982 ) ? Y1982
+	: (type.year === 1983 ) ? Y1983
+	: (type.year === 1984 ) ? Y1984
+	: (type.year === 1985 ) ? Y1985
+	: (type.year === 1986 ) ? Y1986
+	: (type.year === 1987 ) ? Y1987
+	: (type.year === 1988 ) ? Y1988
+	: (type.year === 1989 ) ? Y1989
+	: (type.year === 1990 ) ? Y1990
+	: (type.year === 1991 ) ? Y1991
+	: (type.year === 1992 ) ? Y1992
+	: (type.year === 1993 ) ? Y1993
+	: (type.year === 1994 ) ? Y1994
+	: (type.year === 1995 ) ? Y1995
+	: (type.year === 1996 ) ? Y1996
+	: (type.year === 1997 ) ? Y1997
+	: (type.year === 1998 ) ? Y1998
+	: (type.year === 1999 ) ? Y1999
+	: (type.year === 2000 ) ? Y2000
+	: (type.year === 2001 ) ? Y2001
+	: (type.year === 2002 ) ? Y2002
+	: (type.year === 2003 ) ? Y2003
+	: (type.year === 2004 ) ? Y2004
+	: (type.year === 2005 ) ? Y2005
+	: (type.year === 2006 ) ? Y2006
+	: (type.year === 2007 ) ? Y2007
+	: (type.year === 2008 ) ? Y2008
+	: (type.year === 2009 ) ? Y2009
+	: (type.year === 2010 ) ? Y2010
+	: (type.year === 2011 ) ? Y2011
+	: (type.year === 2012 ) ? Y2012
+	: (type.year === 2013 ) ? Y2013
+	: (type.year === 2014 ) ? Y2014
+	: (type.year === 2015 ) ? Y2015
+	: (type.year === 2016 ) ? Y2016
+	: (type.year === 2017 ) ? Y2017
+	: (type.year === 2018 ) ? Y2018
+	: (type.year === 2019 ) ? Y2019
+	: (type.year === 2020 ) ? Y2020       
+	: (type.year === 2021 ) ? Y2020
+	: Y2020
+    ,
+	this.syear = type.syear;
+	this.month = type.month;
+    this.monthname = type.monthname; 
+	this.monthlength = type.monthlength; 
+	this.dayNo = type.dayNo ;
+	this.day = type.day; 
+	this.dayname = type.dayname; 
+    this.array = [type.year,type.month,type.dayNo];
+    this.hour = type.hour; 
+	// this.minute = type.minute; 
+	// this.second = type.second; 	 
+	// add more years      
+    chartProduct = year[this.month][this.dayNo ]; // breaks when day is 0 or 31+ fix for these scenarios
+    day = chartProduct.day;
+    dayname =  (day === 'Sun') ? 'Sunday'
+		: (day ==='Mon') ? 'Monday'
+		: (day ==='Tue') ? 'Tuesday'
+		: (day ==='Wed') ? 'Wednesday'
+		: (day ==='Thu') ? 'Thursday'
+		: (day ==='Fri') ? 'Friday'
+		: (day ==='Sat') ? 'Saturday'
+		:'This day';
+    number = chartProduct.DayN;
+    srt = chartProduct.SRT;
+    sun = chartProduct.SU;
+    moon = chartProduct.MO;
+    mercury = chartProduct.ME;
+    venus = chartProduct.VE;
+    mars = chartProduct.MA;
+    jupiter = chartProduct.JU;
+    saturn = chartProduct.SA;
+    uranus = chartProduct.UR;
+    neptune = chartProduct.NE;
+    pluto = chartProduct.PL;
+    node = chartProduct.NO;
+	// function sis(signFullName)
+	// 		{
+	// 			this.sister = [];
+	// 			sister.push(signFullName);
+	// 			this.Sister = [];
+	// 			return sister;
+	// 		};
+	planetsIN =[];
+		// ={
+		// 'aries' : 0,
+		// 'taurus' : 0,
+		// 'gemini' : 0,
+		// 'cancer' : 0,
+		// 'leo' : 0,
+		// 'virgo' : 0,
+		// 'libra' : 0,
+		// 'scorpio' : 0,
+		// 'sagittarius' : 0,
+		// 'capricorn' : 0,
+		// 'aquarius' : 0,
+		// 'pisces' : 0
+		// }
+    function layout(x)
+        {	
+        this.sign  =  x.match(/ar|ta|ge|cn|le|vi|li|sc|sg|cp|aq|pi/gi).join();            	
+		signsIN
+			={
+				'sun' : 0,
+				'moon' : 0,
+				'mercury' : 0,
+				'venus' : 0,
+				'mars' : 0,
+				'jupiter' : 0,
+				'saturn' : 0,
+				'uranus' : 0,
+				'neptune' : 0,
+				'pluto' : 0
+			}
+		switch(this.sign)
+            {
+				case 'AQ' : signFullName ="Aquarius", signNumber=11, planetsIN.push('aquarius');
+				break; 	case 'AR' : signFullName = "Aries", signNumber=1,  planetsIN.push('aries');
+            break; case 'TA' : signFullName ="Taurus",signNumber=2, planetsIN.push('taurus');
+            break; case 'GE' : signFullName ="Gemini", signNumber=3, planetsIN.push('gemini');
+            break; case 'CN' : signFullName ="Cancer", signNumber=4, planetsIN.push('cancer');
+            break; case 'LE' : signFullName ="Leo", signNumber=5, planetsIN.push('leo');
+            break; case 'VI' : signFullName ="Virgo", signNumber=6, planetsIN.push('virgo');
+            break; case 'LI' : signFullName ="Libra", signNumber=7, planetsIN.push('libra');
+            break; case 'SC' : signFullName ="Scorpio", signNumber=8, planetsIN.push('scorpio');
+            break; case 'SG' : signFullName ="Sagittarius", signNumber=9, planetsIN.push('sagittarius');
+            break; case 'CP' : signFullName ="Capricorn", signNumber=10, planetsIN.push('capricorn');
+
+            break; case 'PI' : signFullName ="Pisces", signNumber=12, planetsIN.push('pisces');
+            break; default: signFullName,  signNumber =0,        planetsIN = ""; 
+            }; 
+        this.degree = x.match(/^\d{2}/).join();
+        this.minute = x.match(/\d{2}$/).join();
+        this.second = 0;	
+    //DEBUG TOOL
+            last_user_node 
+            = {
+            sign : sign = signFullName
+            , 
+            signNo: +signNumber
+			,
+			sister: this.planetsIN
+            , 
+            degree: +this.degree
+            , 
+			hour: +this.hour
+			,
+            minute: +this.minute
+            ,
+            second: +this.second
+            }
+        return last_user_node
+        } 	 	
+    display 
+    = { 
+    'sun' : layout(sun)
+    ,  
+    'moon' : layout(moon)
+    ,  
+    'mercury' : layout(mercury)
+    , 
+    'venus' : layout(venus)
+    ,  
+    'mars' : layout(mars)
+    ,   
+    'jupiter' : layout(jupiter)
+    ,  
+    'saturn' : layout(saturn)
+    ,  
+    'uranus' : layout(uranus)
+    ,  
+    'neptune' : layout(neptune)
+    ,  
+    'pluto' : layout(pluto)
+    ,     
+    'node' : layout(node)  				
+    }	
+    _1
+    = { 
+    1 : sun = layout(sun)
+    ,  
+    2 : moon = layout(moon)
+    ,  
+    3 : mercury = layout(mercury)
+    , 
+    4 : venus = layout(venus)
+    ,  
+    5 : mars =  layout(mars)
+    ,   
+    6 : jupiter =  layout(jupiter)
+    ,  
+    7 : saturn =  layout(saturn)
+    ,  
+    8 : uranus =  layout(uranus)
+    ,  
+    9 : neptune = layout(neptune)
+    ,  
+    10 : pluto = layout(pluto)
+    ,     
+    11 : node = layout(node)  				
+    } 
+	pattern = [display.sun.sign, display.moon.sign, display.mars.sign, display.venus.sign, display.mercury.sign,display.jupiter.sign,
+	display.saturn.sign, display.uranus.sign, display.neptune.sign, display.pluto.sign]  
+
+	var narrative = "Based on the date you gave me, I see your Sun sign (which represents the 'public you') is in " + display.sun.sign  +" at "+display.sun.degree+ " degrees and " +display.sun.minute + " minutes. Secondly, your Moon sign (which represents the 'private you') is in " 
+    +display.moon.sign + " at " +display.moon.degree+ " degrees and " +display.moon.minute + " minutes. Your Mars sign (which represents your fighting spirit) is in "+
+    display.mars.sign + " at " +display.mars.degree+ " degrees and " +display.mars.minute + " minutes. Venus sign is in "+
+    display.venus.sign + " at " + display.venus.degree+ " degrees and " +display.venus.minute + " minutes. Mercury sign is in "+
+    display.mercury.sign + " at " + display.mercury.degree+ " degrees and " + display.mercury.minute + " minutes. Jupiter sign is in "+
+    display.jupiter.sign + " at " + display.jupiter.degree+ " degrees and " + display.jupiter.minute + " minutes. Saturn sign is in "+
+    display.saturn.sign + " at " + display.saturn.degree+ " degrees and " + display.saturn.minute + " minutes. Uranus sign is in "+
+    display.uranus.sign + " at " + display.uranus.degree+ " degrees and " + display.uranus.minute + " minutes. Neptune sign is in "+
+    display.neptune.sign + " at " + display.neptune.degree+ " degrees and " + display.neptune.minute + " minutes. Pluto sign is in "+
+    display.pluto.sign + " at " + display.pluto.degree+ " degrees and " + display.pluto.minute + " minutes. Node sign is in "+
+	display.node.sign + " at " + display.node.degree+ " degrees and " + display.node.minute + " minutes.";
+    // add tally of signs and element and gender and cardinal/fixed/mutable...info
+    z = {};
+    // z.againchart = this.year[this.month][this.dayNo];
+    // z.againdayb4 = this.year[this.month][this.dayNo - 1];
+    // z.planetPatterns = '';
+    // z.firstday = this.year[this.month][0];
+    // z.lastday = this.year[this.month][this.monthlength -1];
+    z.array = array;
+    z.month = month;
+    z.monthname = monthname;
+    z.monthlength = monthlength;
+    z.dayname = dayname;
+    z.dayNo = dayNo;
+	z.number = number;
+    z.chart = chartProduct;
+    z.display = display;
+    z.narrative = narrative;
+    z.year = syear;	
+    z.username = userName;	
+	// z.test = planetsIN;
+	return z;
+    }
+
+	PLAYER 
+	=[{'TODAY': TODAY = player(today)}, 
+	{'YESTERDAY': YESTERDAY = player(yesterday)},
+	{'TOMORROW': TOMORROW = player(tomorrow)},
+	{'DAYOFBIRTH':DAYOFBIRTH = player(birth)}, 
+	{'DAYBEFOREBIRTH': DAYBEFOREBIRTH = player(birth.dayb4)}, 
+	{'DAYAFTERBIRTH': DAYAFTERBIRTH = player(birth._2moro)}
+	]
+	realplayer = function realplayer(x){
+
+	x.CARDINALS = {'Aries' : Aries, 'Cancer' : Cancer,  'Libra' : Libra, 'Capricorn' : Capricorn, }; 
+	x.FIXED = {'Taurus' : Taurus, 'Leo' : Leo, 'Scorpio' : Scorpio, 'Aquarius' : Aquarius, }
+	x.MUTABLES = {'Gemini' : Gemini, 'Virgo' : Virgo, 'Sagittarius' : Sagittarius, 'Pisces' : Pisces}
+	
+		return x;
+	}
+	/////////////////////////////////////////////////////
+	// 	PLANET INTERPOLATIONS 
+	/////////////////////////////////////////////////////
+	PTC = (birth.minute / 60 + birth.hour) / 24;
+  // create new object to hold comparisons...?
+   
+ 
+    comparisons = function details(x){
+    
+	this.x = x;
+	// AS BASE GET startPlanetSign & endPlanetSign 
+    a = DAYOFBIRTH.display; // get startPlanet
+    b = DAYAFTERBIRTH.display; // get endPlanet
+    // DECLARATIONS
+	startSign = a[x].sign;  // filter by Sign 
+    endSign = b[x].sign;  // filter by Sign
+    startSignNumber = a[x].signNo;  // filter by SignNo 
+    endSignNumber = b[x].signNo;  // filter by SignNo
+    startDegree = a[x].degree;  // filter by Degree
+    endDegree = b[x].degree;  // filter by Degree
+    startMinute = a[x].minute;  // filter by Minute
+    endMinute = b[x].minute;  // filter by Minute
+    startSecond = a[x].second;  // filter by Second 
+    endSecond = b[x].second;  // filter by Second
+    startdayNumber = a.DayNo,   
+    enddayNumber   = b.DayNo, 
+    motion = "";
+    
+    // IDENTIFY RETROGRADE
+
+	helper 
+	= {
+	'shiftedSignNumber' : shiftedSignNumber = (endSignNumber - startSignNumber === -11) ? 1
+	: endSignNumber - startSignNumber
+	,
+    'motion' : motion = (shiftedSignNumber === 0 && endDegree === startDegree && endMinute < startMinute) ? "r" 
+	: (shiftedSignNumber === 0 && endDegree < startDegree) ? "r"
+	: (shiftedSignNumber === 0 && endDegree === startDegree && endMinute === startMinute) ? "s"
+	: (shiftedSignNumber < 0) ? "r"
+	: "d"
+	,
+	'shiftedSign' : shiftedSign  = endSign +" "+ startSign
+	,
+	'shiftedDegree' : shiftedDegree = (endDegree != startDegree && endSign === startSign) ? endDegree - startDegree
+	: (endDegree === startDegree && endSign != startSign) ? 30
+	: (endDegree != startDegree && endDegree === 0 ) ? 30 - startDegree
+	: (endDegree != startDegree && startDegree === 0 ) ? 30 + endDegree
+	: endDegree - startDegree
+	,
+	'shiftedMinute' : shiftedMinute = (endSign === startSign && endDegree === startDegree) ? endMinute - startMinute	
+	: (endSign === startSign && endDegree != startDegree && shiftedDegree > 2) 
+	? endMinute - startMinute
+	: (endSign === startSign && endDegree != startDegree && shiftedDegree < 0) 
+	? (-60 + endMinute) - startMinute
+	: (endSign === startSign && endDegree != startDegree) ? (60 - startMinute) + endMinute		
+	: (endSign != startSign && endDegree != startDegree && shiftedDegree < 0) ? endMinute - startMinute //(60 - startMinute) + endMinute
+	: (endSign != startSign) ? (60 - startMinute) + endMinute
+	: endMinute - startMinute	
+	,
+	'shiftedSecond' : shiftedSecond = endSecond - startSecond
+	// (endSign === startSign) ? endSecond - startSecond
+	// : (endSign != startSign) ? (60 - startSecond) + endSecond
+	// : endSecond - startSecond
+	,
+	'deltaSign' : deltaSign = [{'difference' : (endSign === startSign) ? 0 : 1}, {'startSign' : startSign}, {'endSign': endSign}]
+	,
+	'deltaSignNumber' : deltaSignNumber = [{'difference' : shiftedSignNumber}, {'startSignNumber': startSignNumber}, {'endSignNumber' : endSignNumber}]
+	,
+	'deltaMinute' : deltaMinute = [{'difference' : shiftedMinute}, {'startMinute' : startMinute}, {'endMinute': endMinute}]
+	,
+	'deltaDegree' : deltaDegree = [{'difference' : shiftedDegree}, {'startDegree' : startDegree}, {'endDegree' : endDegree}]
+	,
+	'deltaSecond' : deltaSecond = [{'difference' : shiftedSecond}, {'startSecond' : startSecond}, {'endSecond' : endSecond}]
+	,
+	'penUltimateSign' : penUltimateSign = (deltaSign[0].difference > 0) ? deltaSign[2].endSign : deltaSign[1].startSign
+	,
+	'penUltimateSignNumber' : penUltimateSignNumber = (deltaSignNumber[0].difference > 0) ? deltaSignNumber[2].endSignNumber : deltaSignNumber[1].startSignNumber
+	,
+	'penUltimateMinute' : penUltimateMinute =  	
+	//	same sign, degree and minute ... 
+	(deltaSign[0].difference === 0 && deltaDegree[0].difference === 0 && deltaMinute[0].difference === 0 ) 
+	? deltaMinute[1].startMinute
+	//	same sign and degree yet different minute ... 
+	: (deltaSign[0].difference === 0 && deltaDegree[0].difference === 0 && deltaMinute[0].difference != 0 ) 
+	? Math.trunc(deltaMinute[0].difference * PTC) + deltaMinute[1].startMinute
+	//	different sign, degree and minute ... for moon in particular
+	: (deltaSign[0].difference != 0 && deltaDegree[0].difference != 0 && deltaMinute[0].difference > 2 )
+	? Math.trunc(deltaMinute[0].difference * PTC) + deltaMinute[1].startMinute * 1 	
+	//	same sign and degree  ... for moon in particular 
+	: (deltaSign[0].difference === 0 && deltaDegree[0].difference != 0 && deltaMinute[0].difference > 2 )
+	? Math.trunc(deltaMinute[0].difference * PTC) + deltaMinute[1].startMinute * 1 
+		
+	//	same sign, yet different degree and minute ... 
+	: (deltaSign[0].difference === 0 && deltaDegree[0].difference != 0 && deltaMinute[0].difference < 0 )
+	? Math.trunc(deltaMinute[0].difference * PTC) + deltaMinute[1].startMinute
+	: (deltaSign[0].difference === 0 && deltaDegree[0].difference != 0 && deltaMinute[0].difference != 0 )
+	? Math.trunc(deltaMinute[0].difference * PTC) + deltaMinute[1].startMinute
+	//	different sign, degree and minute ... 
+	: (deltaSign[0].difference != 0 && deltaDegree[0].difference != 0 && deltaMinute[0].difference != 0 )
+	? Math.trunc(deltaMinute[0].difference * PTC) + deltaMinute[1].startMinute	
+	: 'TBD'
+	,
+	'penUltimateDegree' : penUltimateDegree = 
+	//	same sign and degree  ... 
+	(deltaSign[0].difference === 0 && deltaDegree[0].difference === 0 ) 
+	? deltaDegree[1].startDegree
+	//	different sign and degree  ... for moon in particular 
+	: (deltaSign[0].difference != 0 && deltaDegree[0].difference != 0 && deltaMinute[0].difference > 2 )
+	? Math.abs(Math.trunc(deltaDegree[0].difference * PTC) + deltaDegree[2].endDegree)	
+	//	same sign and degree  ... for moon in particular 
+	: (deltaSign[0].difference === 0 && deltaDegree[0].difference != 0 && deltaMinute[0].difference > 2 )
+	? Math.trunc(deltaDegree[0].difference * PTC) + deltaDegree[1].startDegree	 
+	//	same sign yet different degree  ... 
+	: (deltaSign[0].difference === 0 && deltaDegree[0].difference != 0 && penUltimateMinute > 59) 
+	? deltaDegree[2].endDegree 
+	: (deltaSign[0].difference === 0 && deltaDegree[0].difference != 0 && penUltimateMinute < 59) 	
+	? deltaDegree[1].startDegree
+	//	different sign and degree  ... 
+	: (deltaSign[0].difference != 0 && deltaDegree[0].difference != 0 && deltaMinute[0].difference < 0 ) 
+	? deltaDegree[2].endDegree 
+	: deltaDegree[1].startDegree
+	,
+	'penUltimateSecond' : penUltimateSecond = 
+	//	same sign, degree and minute ...
+	(deltaSign[0].difference === 0 && deltaDegree[0].difference === 0 && deltaMinute[0].difference === 0 ) 
+	? Math.trunc(deltaMinute[1].startMinute * PTC ) 
+	//	same sign and degree yet different minute ... 
+	: (deltaSign[0].difference === 0 && deltaDegree[0].difference === 0 && deltaMinute[0].difference != 0 ) 
+	? ((deltaMinute[0].difference * PTC) + deltaMinute[1].startMinute) * 1 // Math.trunc and modulo and Math.abs this for minute/seconds
+	//	same sign, yet different degree and minute ... 
+	: (deltaSign[0].difference === 0 && deltaDegree[0].difference != 0 && deltaMinute[0].difference != 0 )
+	? ((deltaMinute[0].difference * PTC) + deltaMinute[1].startMinute) * 1 
+	//	different sign, degree and minute ... 
+	: (deltaSign[0].difference != 0 && deltaDegree[0].difference != 0 && deltaMinute[0].difference != 0 )
+	? ((deltaMinute[0].difference * PTC) + deltaMinute[1].startMinute) * 1 
+	: 'TBD'
+	,
+	'UltimateSign' : UltimateSign = penUltimateSign
+	,
+	'UltimateSignNumber' : UltimateSignNumber = penUltimateSignNumber
+	,
+	'UltimateDegree' : UltimateDegree = (penUltimateMinute > 59) ? penUltimateDegree + 1
+	//: (penUltimateMinute < 0) ? penUltimateDegree - 1	
+	: penUltimateDegree
+	//(deltaDegree[0].difference > 0) ? 60 
+	//: (deltaDegree[0].difference < 0) ? -60
+	//: 0
+	,
+	'UltimateMinute' : UltimateMinute = (penUltimateMinute < 59) ? Math.abs(Math.trunc(penUltimateMinute))
+	: (penUltimateMinute > 59) ? penUltimateMinute - 60
+	: Math.abs(Math.trunc(penUltimateMinute))
+	// (deltaMinute[0].difference > 0) ? +penUltimateMinute
+	//: (deltaMinute[0].difference < 0) ? -penUltimateMinute
+	//: penUltimateMinute
+	,
+	'UltimateSecond' : UltimateSecond = Math.abs(Math.trunc((penUltimateSecond % 1) * 100))
+	//(deltaSecond[0].difference > 0) ? penUltimateSecond / 60
+	//: (deltaSecond[0].difference < 0) ? penUltimateSecond / 60
+	//: penUltimateSecond 
+	,
+	'FinalSign' : FinalSign = UltimateSign
+	,
+	'FinalSignNumber' : FinalSignNumber = UltimateSignNumber
+	,
+	'FinalDegree' : FinalDegree = UltimateDegree
+	,
+	'FinalMinute' : FinalMinute =  //(a.moon === a['moon']) ? +Math.trunc((((moon.minute / 60 + moon.degree) * PTC) % 2) * 60)
+	 (+UltimateMinute === 60) ? [0,FinalDegree = FinalDegree + 1]
+	: [+UltimateMinute]
+	,
+	'FinalSecond' : FinalSecond = (a[x] === a['moon']) ? +(((((moon.minute / 60 + moon.degree) * PTC) % 2) * 60) % 2 *100).toFixed()
+	: UltimateSecond
+	}
+ 
+    return {'sign':FinalSign,'signNo':FinalSignNumber , 'degree':FinalDegree,
+            'minute':FinalMinute[0], 'seconds':FinalSecond, 'direction': motion};
+    };
+
+	// TEST COMPARE WITH GLOBAL OBJECTS 'a' and 'b'
+	REAL 
+	= {
+	'sun': comparisons('sun'),'moon': comparisons('moon'),'mercury': comparisons('mercury'),
+	'venus': comparisons('venus'),'mars': comparisons('mars'),'jupiter': comparisons('jupiter'),
+	'saturn': comparisons('saturn'),'uranus': comparisons('uranus'),'neptune': comparisons('neptune'),
+	'pluto': comparisons('pluto'),'node': comparisons('node')
+	}
+	// END INTERPOLATION LOGIC
+	//MODIFIED DOCUMENT AREA
+	modifiedDate = document.getElementById('modifiedDate');
+	info = document.lastModified;
+	modifiedDate.innerHTML ="Last Modified: " +info; 
+
+	// EXTRA TASK COLOR
+	//Wacky code... make an 'ephemeral mood' that changes with time of day or delete entirely
+	function colors(x)
+	{		
+       	z =	document.getElementById('fieldset').setAttribute('style','background-color: green')
+	   	zz = document.getElementsByTagName('p')[0].setAttribute('style','color: white')
+	  	x = 13;
+		if(x < 12){color = "less than 12"; }
+		else if(x == 12){color = "high noon colors";}
+		else if (x >12){color = 1216}
+		else if (x =>16){color = 160;}
+		else color = 0;
+	return color;
+    }
+	// colors();
+	////////////////////////////////////////////////////
+	// DISPLAY PLANET INTERPOLATIONS ON SCREEN VIA DOM MANIPULATION 
+	///////////////////////////////////////////////////
+	var confirm = document.getElementById('confirm');
+	var interpolation = document.getElementById('interpolation');
+	var current_day_interpolation = document.getElementById('current_day_interpolation');
+	var next = document.getElementById('next');           
+
+
+	var sunsign_ = document.getElementById('sunsign_');
+	sunsign_.textContent =DAYOFBIRTH.display.sun.sign;
+	var sundeg = document.getElementById('sundeg');
+	sundeg.textContent ='Your real Sun is in '+REAL.sun.sign+ ' at ' +  REAL.sun.degree  +' degrees ' + ' and '+ REAL.sun.minute +' minutes.';
+
+	var moonsign_ = document.getElementById('moonsign_');
+	moonsign_.textContent =DAYOFBIRTH.display.moon.sign;
+	var moondeg = document.getElementById('moondeg');
+	moondeg.textContent ='Your real moon is in '+ REAL.moon.sign+ ' at ' +  REAL.moon.degree  +' degrees ' + ' and '+ REAL.moon.minute +' minutes.';
+	
+	var mercurysign_ = document.getElementById('mercurysign_');
+	mercurysign_.textContent =DAYOFBIRTH.display.mercury.sign;
+	var mercdeg = document.getElementById('mercdeg');
+	mercdeg.textContent ='Your real mercury is in '+REAL.mercury.sign+ ' at ' +  REAL.mercury.degree  +' degrees ' + ' and '+ REAL.mercury.minute +' minutes.';
+	
+	var marssign_ = document.getElementById('marssign_');
+	marssign_.textContent =DAYOFBIRTH.display.mars.sign;
+	var marsdeg = document.getElementById('marsdeg');
+	marsdeg.textContent ='Your real mars is in '+ REAL.mars.sign+ ' at ' +  REAL.mars.degree  +' degrees ' + ' and '+ REAL.mars.minute +' minutes.' ;
+	
+	var venussign_ = document.getElementById('venussign_');
+	venussign_.textContent =DAYOFBIRTH.display.venus.sign;
+	var venusdeg = document.getElementById('venusdeg');
+	venusdeg.textContent ='Your real venus is in '+REAL.venus.sign+ ' at ' +  REAL.venus.degree  +' degrees ' + ' and '+ REAL.venus.minute +' minutes.' ;
+
+	var jupitersign_  = document.getElementById('jupitersign_');
+	jupitersign_.textContent =DAYOFBIRTH.display.jupiter.sign;
+	var jupiterdeg = document.getElementById('jupiterdeg');
+	jupiterdeg.textContent ='Your real jupiter is in '+ REAL.jupiter.sign+ ' at ' +  REAL.jupiter.degree  +' degrees ' + ' and '+ REAL.jupiter.minute +' minutes.' ;
+
+	var saturnsign_  = document.getElementById('saturnsign_');
+	saturnsign_.textContent =DAYOFBIRTH.display.saturn.sign;
+	var saturndeg = document.getElementById('saturndeg');
+	saturndeg.textContent ='Your real saturn is in '+ REAL.saturn.sign+ ' at ' +  REAL.saturn.degree  +' degrees ' + ' and '+ REAL.saturn.minute +' minutes.';
+
+	var uranussign_  = document.getElementById('uranussign_');
+	uranussign_.textContent =DAYOFBIRTH.display.uranus.sign;
+	var uranusdeg = document.getElementById('uranusdeg');
+	uranusdeg.textContent ='Your real uranus is in '+REAL.uranus.sign+ ' at ' +  REAL.uranus .degree  +' degrees ' + ' and '+ REAL.uranus .minute +' minutes.';
+
+	var neptunesign_ = document.getElementById('neptunesign_');
+	neptunesign_.textContent =DAYOFBIRTH.display.neptune.sign;
+	var neptunedeg = document.getElementById('neptunedeg');
+	neptunedeg.textContent ='Your real neptune is in '+ REAL.neptune.sign+ ' at ' +  REAL.neptune.degree  +' degrees ' + ' and '+ REAL.neptune.minute +' minutes.';
+
+	var plutosign_  = document.getElementById('plutosign_');
+	plutosign_.textContent=DAYOFBIRTH.display.pluto.sign;
+	var plutodeg = document.getElementById('plutodeg');
+	plutodeg.textContent ='Your real pluto is in '+ REAL.pluto.sign+ ' at ' +  REAL.pluto.degree  +' degrees ' + ' and '+ REAL.pluto.minute +' minutes.' ;
+
+	var nodesign_  = document.getElementById('nodesign_');
+	// nodesign_.textContent =DAYOFBIRTH.display.node.sign;
+	var nodedeg = document.getElementById('nodedeg');
+	nodedeg.textContent ='Your real node is in '+ REAL.node.sign+ ' at ' +  REAL.node.degree  +' degrees ' + ' and '+ REAL.node.minute +' minutes.' ;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	// m0.textContent = 'Hey SUN ' +REAL.sun.sign + ' aka ' + REAL.moon.sign + ' MOON... ';
+	// m0b.textContent = '';
+
+	// m4.textContent = 'according to chartProduct:::::: ' + 'sun is in '+ chartProduct.SU + '  |  ' +'moon is in '+ chartProduct.MO + '  |  ' + 'mercury is in '+chartProduct.ME + ' ' 
+	// +'venus is in '+  chartProduct.VE + '  |  ' +  'mars is in '+ chartProduct.MA + '  |  '+  'jupiter is in '+ chartProduct.JU + '  |  ' +  'saturn is in '+ chartProduct.SA + '  |  '+  'uranus is in '+ chartProduct.UR + '  |  ' 
+	// +  chartProduct.NE + '  |  '+  'pluto is in '+ chartProduct.PL + '  |  ' +  'node is in '+ chartProduct.NO + ' ';
+		
+	m3.textContent = 'according to DAYOFBIRTH:::::: ' +'sun is in '+DAYOFBIRTH.display.sun.sign+ ' ' +'moon is in '+DAYOFBIRTH.display.moon.sign+ ' ' +'mercury is in '+DAYOFBIRTH.display.mercury.sign+ ' '
+	+'venus is in '+DAYOFBIRTH.display.venus.sign+ ' ' +'mars is in '+DAYOFBIRTH.display.mars.sign+ '  |  '+  'jupiter is in '+ DAYOFBIRTH.display.jupiter.sign+ '  |  ' +  'saturn is in '+ DAYOFBIRTH.display.saturn.sign
+	+ '  |  '+  'uranus is in '+DAYOFBIRTH.display.uranus.sign+ '  |  '+  'neptune is in '+ DAYOFBIRTH.display.neptune.sign+ ' ' +DAYOFBIRTH.display.pluto.sign + '  |  '+  'node is in '+ DAYOFBIRTH.display.node.sign+ ' ';
+	
+	// m5.textContent = 'according to DAYAFTERBIRTH:::::: ' +'sun is in '+DAYAFTERBIRTH.display.sun.sign + '  |  '+'moon is in '+DAYAFTERBIRTH.display.moon.sign +'mercury is in '+DAYAFTERBIRTH.display.mercury.sign 
+	// + '  |  '+'venus is in '+DAYAFTERBIRTH.display.venus.sign + '  |  '+  'mars is in '+DAYAFTERBIRTH.display.mars.sign + '  |  '+  'jupiter is in '+ DAYAFTERBIRTH.display.jupiter.sign + '  |  '+  'saturn is in '+ DAYAFTERBIRTH.display.saturn.sign 
+	// +  'uranus is in '+DAYAFTERBIRTH.display.uranus.sign + '  |  '+  'neptune is in '+ DAYAFTERBIRTH.display.neptune.sign  + '  |  '+  'pluto is in '+ DAYAFTERBIRTH.display.pluto.sign 
+	// + '  |  '+  'node is in '+ DAYAFTERBIRTH.display.node.sign + ' ';
+	
+	// m0.textContent = "second day summary. " +DAYAFTERBIRTH.narrative;
+	
+
+	question1.textContent = "Hi " + DAYOFBIRTH.username + "! Just to confirm, I have your birthday as  " +DAYOFBIRTH.dayname+ ",   " +DAYOFBIRTH.monthname+ "  "+(DAYOFBIRTH.dayNo +1) +", "+DAYOFBIRTH.array[0]+".";
+	// confirm.textContent = DAYOFBIRTH.narrative;
+	// interpolation.textContent = 'However, (based on the location and time of day you provided) your real birthday is ... and your natal chart is as follows. ' 
+	// +'Your real Sun is in '+REAL.sun.sign+ ' at ' +  REAL.sun.degree  +' degrees ' + ' and '+ REAL.sun.minute +' minutes.   |  ' 
+	// +'Your real moon is in '+ REAL.moon.sign+ ' at ' +  REAL.moon.degree  +' degrees ' + ' and '+ REAL.moon.minute +' minutes.   |  ' 
+	// + 'Your real mercury is in '+REAL.mercury.sign+ ' at ' +  REAL.mercury.degree  +' degrees ' + ' and '+ REAL.mercury.minute +' minutes.   |  '  
+	// + 'Your real venus is in '+REAL.venus.sign+ ' at ' +  REAL.venus.degree  +' degrees ' + ' and '+ REAL.venus.minute +' minutes.   |  '  
+	// +  'Your real mars is in '+ REAL.mars.sign+ ' at ' +  REAL.mars.degree  +' degrees ' + ' and '+ REAL.mars.minute +' minutes.   |  '  
+	// +  'Your real jupiter is in '+ REAL.jupiter.sign+ ' at ' +  REAL.jupiter.degree  +' degrees ' + ' and '+ REAL.jupiter.minute +' minutes.   |  '  
+	// +  'Your real saturn is in '+ REAL.saturn.sign+ ' at ' +  REAL.saturn.degree  +' degrees ' + ' and '+ REAL.saturn.minute +' minutes.   |  '  
+	// +  'Your real uranus is in '+REAL.uranus.sign+ ' at ' +  REAL.uranus .degree  +' degrees ' + ' and '+ REAL.uranus .minute +' minutes.   |  ' 
+	// +  'Your real neptune is in '+ REAL.neptune.sign+ ' at ' +  REAL.neptune.degree  +' degrees ' + ' and '+ REAL.neptune.minute +' minutes.   |  ' 
+	// +  'Your real pluto is in '+ REAL.pluto.sign+ ' at ' +  REAL.pluto.degree  +' degrees ' + ' and '+ REAL.pluto.minute +' minutes.   |  ' 
+	// +  'Your real node is in '+ REAL.node.sign+ ' at ' +  REAL.node.degree  +' degrees ' + ' and '+ REAL.node.minute +' minutes.    ' ;
+	// DAYOFBIRTH.monthname+ " "+DAYOFBIRTH.dayNo+ " "+ DAYOFBIRTH.year+ ", at around "+birth.hour +":"+birth.minute +" "+ampm+ ", Sun sign was "+
+	// DAYOFBIRTH.narrative +"." 
+	// current_day_interpolation.textContent =  "calculated..." + 	'sun is in '+REAL.sun.sign+ ' at ' +  REAL.sun.degree  +' degrees ' + ' and '+ REAL.sun.minute +' minutes   |  ' +'moon is in '+ REAL.moon.sign + '  |  ' + 'mercury is in '+REAL.mercury.sign + '  |  ' + 'venus is in '+REAL.venus.sign 
+	// +REAL.mars.sign + '  |  '+  'jupiter is in '+ REAL.jupiter.sign+ '  |  ' +  'saturn is in '+ REAL.saturn.sign + '  |  '+  'uranus is in '+REAL.uranus.sign +REAL.neptune.sign + '  |  '+  'pluto is in '+ REAL.pluto.sign
+	// + '  |  '+  'node is in '+ REAL.node.sign+ ' ';
+	
+	// "//+TODAY.narrative //+" and YESTERDAY ... " +b0.narrative +" and EVEN TOMORROW ... " +b2.narrative+"."  
+	//script end
+	//HIDE FORM AFTER SUBMISSION
+	document.getElementById('dob_input').setAttribute('style','display: none');    
+}
+</script> 
+<script src="years.js"></script>  
+
+ </head>
+<!--the body is the visible part of the webpage or service. -->
+<!--It is the place of UX/UI user design and interface -->
+<!--This body calls on the head to run its script with the onload HTML attribute -->
+<body onload ="chartProcess()">
+ <fieldset class="fieldset" id ="fieldset">
+  <legend id="modifiedDate">  </legend>
+   <h1> innerCoordinates <br/> <span style="position:absolute; top:65px; color: goldenrod; font-size: 15px;">a service by Human Angel Tech</span></h1>
+    
+    <form class="form" name="dob_input" id="dob_input" action="newcoordinates.html" method="GET" onsubmit="disappear()">
+	  <h2 id="ask_dob"> Please share your name and select your date of birth.</h2>
+	   <div class="tob, ampm">
+	     <label > What part of the day where you born? <label>
+		    <br/>
+		    <input type = 'radio' value="am" for ="" id="am" name="ampm" class="ampm"/>
+			<label for = "am"> Morning <label> &nbsp;&nbump; &nbump; &nbsp;
+			<label for = "pm"> Evening <label>
+  			<input type = 'radio' value="pm" for ="" id="pm" name="ampm" class="ampm"/>
+  			<hr/>
+	    </div>
+	    <div class="pob">
+	     <label for="pob">Birth Place: Where is home for you?</label><br/>
+		  <select id="pob" name="pob" size="4">
+		    <option value=00 >-------</option> 		  
+			<option value=00 >CANADA</option> 
+			<option value=04 >CANADA: Alert</option>
+			<option value=08 >CANADA: Calgary</option>
+			<option value=06 >CANADA: Churchill</option>
+			<option value=04 >CANADA: Goose Bay</option>
+			<option value=05 >CANADA: Montreal</option>
+			<option value=08 >CANADA: Mould Bay</option>
+			<option value=08 >CANADA: Vancouver</option>
+			<option value=06 >CANADA: Winnipeg</option>
+			<option value=00 >-------</option> 
+			<option value=00 >MEXICO</option> 
+			<option value=08 >MEXICO: Hermosillo</option>
+			<option value=06 >MEXICO: Managua</option>
+			<option value=07 >MEXICO: Mexico City</option>
+			<option value=00 >-------</option>   
+			<option value=00 >USA</option>
+			<option value=06 >USA: Alabama</option>   
+			<option value=09 >USA: Alaska: Juneau</option> 
+			<option value=10 >USA: Alaska: Anchorage</option>
+			<option value=10 >USA: Alaska: Barrow</option>
+			<option value=11 >USA: Alaska: Nome</option>
+			<option value=06 >USA: Arkansas</option>
+			<option value=07 >USA: Arizona</option>			  			  
+			<option value=08 >USA: California</option>
+			<option value=07 >USA: Colorado</option>
+			<option value=05 >USA: Delaware</option>
+			<option value=05 >USA: Florida</option>
+			<option value=06 >USA: Florida Panhandle</option>	
+			<option value=05 >USA: Georgia</option>
+			<option value=10 >USA: Hawaii East</option>     	  
+			<option value=11 >USA: Hawaii West</option>  
+			<option value=06 >USA: Illinois</option>			  		  
+			<option value=07 >USA: Idaho</option>
+			<option value=08 >USA: Idaho North Tip</option>
+			<option value=05 >USA: Indiana</option>
+			<option value=06 >USA: Indiana NorthWest Tip</option>					  	
+			<option value=06 >USA: Indiana SouthWest Tip</option>				  	
+			<option value=06 >USA: Iowa</option>		
+			<option value=06 >USA: Kansas </option>
+			<option value=07 >USA: Kansas West Tip</option>
+			<option value=05 >USA: Kentucky East</option>
+			<option value=06 >USA: Kentucky West</option>
+			<option value=06 >USA: Louisiana</option>			  			  
+			<option value=05 >USA: Maine</option>
+			<option value=05 >USA: Massachussetts</option>			  
+			<option value=05 >USA: Maryland</option>
+			<option value=05 >USA: Michigan</option>				  
+			<option value=06 >USA: Minnesotta</option>	
+			<option value=06 >USA: Mississippi</option>
+			<option value=06 >USA: Missouri</option>				  				  			  
+			<option value=07 >USA: Montana</option>			  
+			<option value=06 >USA: Nebraska East</option>
+			<option value=07 >USA: Nebraska West</option>				  
+			<option value=08 >USA: Nevada</option>		
+			<option value=05 >USA: New Hampshire</option>	
+			<option value=07 >USA: New Mexico</option>		  
+			<option value=05 >USA: New Jersey</option>
+			<option value=05 >USA: New York</option>		  
+			<option value=05 >USA: North Carolina</option>
+			<option value=06 >USA: North Dakota</option>
+			<option value=07 >USA: North Dakota SouthWest</option>			  			    			 
+			<option value=05 >USA: Ohio </option>				  
+			<option value=08 >USA: Oregon</option>
+			<option value=06 >USA: Oklahoma</option>
+			<option value=05 >USA: Pennsylvania</option>	
+			<option value=05 >USA: Puerto Rico</option>				  		  
+			<option value=05 >USA: Rhode Island</option>			  			  
+			<option value=05 >USA: South Carolina</option>
+			<option value=06 >USA: South Dakota East</option>			  
+			<option value=07 >USA: South Dakota West</option>
+			<option value=05 >USA: Tennessee East</option>	
+			<option value=06 >USA: Tennessee West</option>				  			  			  
+			<option value=06 >USA: Texas</option>
+			<option value=07 >USA: Texas South West Tip</option>							  	  
+			<option value=07 >USA: Utah</option>
+			<option value=05 >USA: Vermont</option>
+			<option value=05 >USA: Virginia</option>
+			<option value=08 >USA: Washington</option>
+			<option value=06 >USA: Wisconsin</option>	              
+			<option value=05 >USA: West Virginia</option>
+			<option value=07 >USA: Wyoming</option>			  
+			<option value=00 >-------</option> 	
+			<option value=04 >ARGENTINA: East</option>	
+			<option value=05 >ARGENTINA: West</option>		          		  
+			<option value=03 >BRAZIL: East </option>
+			<option value=04 >BRAZIL: Central </option>	          
+			<option value=05 >BRAZIL: West </option>	          
+			<option value=04 >BOLIVIA: East</option>	          
+			<option value=05 >BOLIVIA: La Paz</option> 	 	          
+			<option value=05 >BOLIVIA: West</option>
+			<option value=04 >CARIBBEAN: All Islands</option>
+			<option value=05 >CHILE: </option>
+			<option value=05 >COLUMBIA: </option>
+			<option value=06 >COSTA RICA: </option>
+			<option value=04 >CUBA: East</option>
+			<option value=05 >CUBA: Havana</option>			  
+			<option value=05 >EQUADOR: </option> 
+			<option value=03.5 >FRENCH GUIANA: </option>
+			<option value=06 >GUATEMALA: </option>			  
+			<option value=04 >GUYANA: </option>
+			<option value=06 >HONDURAS: </option>	
+			<option value=06 >NICARAGUA:</option>	          			  
+			<option value=05 >PANAMA: </option>  
+			<option value=04 >PARAGUAY: </option> 			  			  
+			<option value=05 >PERU: </option> 
+			<option value=04 >SURINAME: </option>	
+			<option value=04 >URUGUAY: </option> 	  	          
+			<option value=05 >VENEZUELA: East </option>			  
+			<option value=04 >VENEZUELA: West</option>	
+		  </select>
+		</div>
+		<label for ="finitial">First Name (Initial)</label>
+		<input type="text" name="finitial" id="finitial" class="name_box" maxlength="">
+		<label for ="linitial">Last Name (Initial) </label>
+		<input type="text" name="linitial" id="linitial" class="name_box" maxlength="">
+		<div class="dob_box">
+		 <label for="dob-month">Birth Month</label><br/>
+		  <select id="month" name="dob_month" size="4">
+			<option value=00 >January</option>
+			<option value=01 >February</option>
+			<option value=02 >March</option>
+			<option value=03 >April</option>
+			<option value=04 >May</option>
+			<option value=05 >June</option>
+			<option value=06 >July</option>
+			<option value=07 >August</option>
+			<option value=08 >September</option>
+			<option value=09 >October</option>
+			<option value=10 >November</option>
+			<option value=11 >December</option>
+		  </select>
+		</div>
+		<div class="dob_box">
+			<label for="dob-day">Birth Date</label><br/>
+			<select id="day" name="dob_day" size="4">
+			  <option value=00 >1</option>
+			  <option value=01>2</option>
+			  <option value=02>3</option>
+			  <option value=03>4</option>
+			  <option value=04>5</option>
+			  <option value=05>6</option>
+			  <option value=06>7</option>
+			  <option value=07>8</option>
+			  <option value=08>9</option>
+			  <option value=09>10</option>
+			  <option value=10>11</option>
+			  <option value=11>12</option>
+			  <option value=12>13</option>
+			  <option value=13>14</option>
+			  <option value=14>15</option>
+			  <option value=15>16</option>
+			  <option value=16>17</option>
+			  <option value=17>18</option>
+			  <option value=19>19</option>
+			  <option value=19>20</option>
+			  <option value=20>21</option>
+			  <option value=21>22</option>
+			  <option value=22>23</option>
+			  <option value=23>24</option>
+			  <option value=24 >25</option>
+			  <option value=25>26</option>
+			  <option value=26>27</option>
+			  <option value=27>28</option>
+			  <option value=28>29</option>
+			  <option value=29>30</option>
+			  <option value=30>31</option>
+			</select>
+		</div>
+		<div class="dob_box">
+		<label for="dob-year">Birth Year</label><br/>
+		<select id="years" name="dob_year" size="4">
+			  <option value=1950>1950</option>
+			  <option value=1951>1951</option>
+			  <option value=1952>1952</option>
+			  <option value=1953>1953</option>
+			  <option value=1954>1954</option>
+			  <option value=1955>1955</option>
+			  <option value=1956>1956</option>
+			  <option value=1957>1957</option>
+			  <option value=1958>1958</option>
+			  <option value=1959>1959</option>
+			  <option value=1960>1960</option>
+			  <option value=1961>1961</option>
+			  <option value=1962>1962</option>
+			  <option value=1963>1963</option>
+			  <option value=1964>1964</option>
+			  <option value=1965>1965</option>
+			  <option value=1966>1966</option>
+			  <option value=1967>1967</option>
+			  <option value=1968>1968</option>
+			  <option value=1969>1969</option>
+			  <option value=1970>1970</option>
+			  <option value=1971>1971</option>
+			  <option value=1972>1972</option>
+			  <option value=1973>1973</option>
+			  <option value=1974>1974</option>
+			  <option value=1975>1975</option>
+			  <option value=1976>1976</option>
+			  <option value=1977>1977</option>
+			  <option value=1978>1978</option>
+			  <option value=1979>1979</option>
+			  <option value=1980>1980</option>
+			  <option value=1981>1981</option>
+			  <option value=1982>1982</option>
+			  <option value=1983>1983</option>
+			  <option value=1984>1984</option>
+			  <option value=1985>1985</option>
+			  <option value=1986>1986</option>
+			  <option value=1987>1987</option>
+			  <option value=1988>1988</option>
+			  <option value=1989>1989</option>
+			  <option value=1990>1990</option>
+			  <option value=1991>1991</option>
+			  <option value=1992>1992</option>
+			  <option value=1993>1993</option>
+			  <option value=1994>1994</option>
+			  <option value=1995>1995</option>
+			  <option value=1996>1996</option>
+			  <option value=1997>1997</option>
+			  <option value=1998>1998</option>
+			  <option value=1999>1999</option>
+			  <option value=2000>2000</option>
+			  <option value=2001>2001</option>
+			  <option value=2002>2002</option>
+			  <option value=2003>2003</option>
+			  <option value=2004>2004</option>
+			  <option value=2005>2005</option>
+			  <option value=2006>2006</option>
+			  <option value=2007>2007</option>
+			  <option value=2008>2008</option>
+			  <option value=2009>2009</option>
+			  <option value=2010>2010</option>
+			  <option value=2011>2011</option>
+			  <option value=2012>2012</option>
+			  <option value=2013>2013</option>
+			  <option value=2014>2014</option>
+			  <option value=2015>2015</option>
+			  <option value=2016>2016</option>
+			  <option value=2017>2017</option>
+			  <option value=2018>2018</option>
+			  <option value=2019>2019</option>
+			  <option value=2020>2020</option>
+			  <option value=2021>2021</option>
+		</select>
+		</div>
+		<hr style="clear:both"/>
+		<label class="time_box" for ="time_of_birth">About what time were you born?</label>
+		<div class="tob">
+			<label for="tob-hour">Hour</label><br/>
+			<select id="tob-hour" name="h" size="4">
+			  <option value=01>1</option>
+			  <option value=02>2</option>
+			  <option value=03>3</option>
+			  <option value=04>4</option>
+			  <option value=05>5</option>
+			  <option value=06>6</option>
+			  <option value=07>7</option>
+			  <option value=08>8</option>
+			  <option value=09>9</option>
+			  <option value=10>10</option>
+			  <option value=11>11</option>
+			  <option value=12>12</option>
+			</select>
+		</div>
+		<div class="tob">
+			<label for="tob-minute">Minute</label><br/>
+			<select id="tob-minute" name="m" size="4">
+			  <option value=01>1</option>
+			  <option value=02>2</option>
+			  <option value=03>3</option>
+			  <option value=04>4</option>
+			  <option value=05>5</option>
+			  <option value=06>6</option>
+			  <option value=07>7</option>
+			  <option value=08>8</option>
+			  <option value=09>9</option>
+			  <option value=10>10</option>
+			  <option value=11>11</option>
+			  <option value=12>12</option>
+			  <option value=13>13</option>
+			  <option value=14>14</option>
+			  <option value=15>15</option>
+			  <option value=16>16</option>
+			  <option value=17>17</option>
+			  <option value=18>18</option>
+			  <option value=19>19</option>
+			  <option value=20>20</option>
+			  <option value=21>21</option>
+			  <option value=22>22</option>
+			  <option value=23>23</option>
+			  <option value=24>24</option>
+			  <option value=25>25</option>
+			  <option value=26>26</option>
+			  <option value=27>27</option>
+			  <option value=28>28</option>
+			  <option value=29>29</option>
+			  <option value=30>30</option>
+			  <option value=31>31</option>
+			  <option value=32>32</option>
+			  <option value=33>33</option>
+			  <option value=34>34</option>
+			  <option value=35>35</option>
+			  <option value=36>36</option>
+			  <option value=37>37</option>
+			  <option value=38>38</option>
+			  <option value=39>39</option>
+			  <option value=40>40</option>
+			  <option value=41>41</option>
+			  <option value=42>42</option>
+			  <option value=43>43</option>
+			  <option value=44>44</option>
+			  <option value=45>45</option>
+			  <option value=46>46</option>
+			  <option value=47>47</option>
+			  <option value=48>48</option>
+			  <option value=49>49</option>
+			  <option value=50>50</option>
+			  <option value=51>51</option>
+			  <option value=52>52</option>
+			  <option value=53>53</option>
+			  <option value=54>54</option>
+			  <option value=55>55</option>
+			  <option value=56>56</option>
+			  <option value=57>57</option>
+			  <option value=58>58</option>
+			  <option value=59>59</option> 
+			</select>
+		</div>
+		<hr style="clear:both"/>
+		<!--<input id='time_of_birth' name='time_of_birth' type="time" width="90%" class="time_box" form ="dob_input"/> -->
+		<!-- It makes no sense to label this hidden field. Fix with best practice.-->  
+		<label for ="hidden"><input type="hidden" value='123' id="hidden"/> </label>
+		<input  class="submit" id="submit" type="submit"  onsubmit="disappear()" alt=" " value="see your chart"/>
+	</form>
+
+
+
+  
+	
+    <table id="table">
+		<tr id="current_day_interpolation"> </tr>
+		<tr id="question1"> </tr>
+		<tr id="m0"> &nbsp;<td id="m0a"> &nbsp;</td><td id="m0b"> &nbsp;</td></tr>
+		<tr id="m3"> &nbsp;<td id="m3a"> &nbsp;</td><td id="m3b"> &nbsp;</td></tr>
+		
+	<!--	<tr id="m6">&nbsp; <td id="m6a">&nbsp; </td><td id="m6b"> &nbsp;</td></tr> -->
+		<!-- <tr id="m7">&nbsp; <td id="m7a">&nbsp; </td><td id="m7b"> &nbsp;</td></tr> --> 
+	</table>
+	<p onclick="toggle_visibility('more0');"> READ MORE</p>
+
+    <div class="full-body" id="more0"> 
+		<div class="float_right block backcolor percent_3">
+			<nav class='menu'>
+				<p class="para">
+					<div class="prev"> <a href="#">&LessLess; </a></div>
+					<a href="#"><li class="space"> &#9737; SUN</li></a>
+					<a href="#"><li class="space">&#9790; MOON</li></a>
+					<a href="#"><li class="space">&#9791; MERCURY</li></a>
+					<a href="#"><li class="space">&#9792;VENUS</li></a>
+					<!-- <a href="#"><div class="space">&#9793;</div></a> -->
+					<a href="#"><li class="space">&#9794;MARS</li></a>
+					<a href="#"><li class="space">&#9795;JUPITER</li></a>
+					<a href="#"><li class="space">&#9796;SATURN</li></a>
+					<a href="#"><li class="space">&#9797;URANUS</li></a>
+					<a href="#"><li class="space">&#9798;NEPTUNE</li></a>
+					<a href="#"><li class="space">&#9799;PLUTO</li></a>
+					<a href="#"><li class="space"> &#9737; SUN</li></a>
+					<a href="#"><li class="space">&#9790; MOON</li></a>
+					<div class="next"> <a href="#">&GreaterGreater; </a></div>
+				</p>
+		</nav>
+		</div> 
+        <div class="primary float_left "> 
+               
+            <div class="float_left block percent_60" >
+				<span class="colorwrap1"></span>
+				<span class="colorwrap2"></span>
+                    <div style="position: relative">
+                        <span class="wide ">&#9737 SUN IN 			
+						</span>
+						<h1 class="glyph">&#9737</h1>
+                        <h1 class="wide " id="sunsign_">SIGN</h1>
+						<p> <span id="sundeg"> </span>  <span id="sunmin"> </span></p>
+					   <p>  <span id="nodesign_"> </span>  <span id="nodedeg"> </span> </p>
+					   <p onclick="toggle_visibility('sun1');"> <img src="READMORE.svg" style="width: 15%;opacity:.6">  
+						<span id="sun1" style="display: none">dddd</span>
+					</p>
+						<!-- <p id="confirm"> </p> 
+						<p id="interpolation"> </p>  -->
+			
+                    </div>
+            </div>   
+        </div>
+        <div class="secondary float_left "> 
+			<h6> INNER PLANETS</h6>
+          
+            <div class="float_left ">
+
+               <div class="block float_left percent_50">
+        
+                    <span class="wide ">&#9790 MOON IN </span>
+						<h1 class="glyph">&#9789</h1>
+						<h1 class="wide " id="moonsign_">SIGN</h1>
+						<p> <span id="moondeg"> </span> <span id="moonmin"> </span></p>  
+						<p onclick="toggle_visibility('moon1');"> <img src="READMORE.svg" style="width: 15%;opacity:.6"> 
+							<span id="moon1" style="display: none">dddd</span>
+						</p> 
+            
+               </div>
+               <div class="block float_left percent_50">
+             
+                    <span class="wide ">&#9791 MERCURY IN </span>
+						<h1 class="glyph">&#9791</h1>
+						<h1 class="wide " id="mercurysign_">SIGN</h1>
+						<p>  <span id="mercdeg"> </span>  <span id="mercmin"> </span> </p> 
+						<p onclick="toggle_visibility('merc1');"> <img src="READMORE.svg" style="width: 15%;opacity:.6"> 
+							<span id="merc1" style="display: none">dddd</span>
+						</p>     
+                </div>
+              
+               <div class="block float_left percent_50">
+               
+                    <span class="wide ">&#9792 VENUS IN </span>
+						<h1 class="glyph">&#9792</h1>
+						<h1 class="wide " id="venussign_">SIGN</h1>
+						<p>  <span id="venusdeg"> </span>  <span id="venusmin"> </span></p> 
+						<p onclick="toggle_visibility('ven1');"> <img src="READMORE.svg" style="width: 15%;opacity:.6"> 
+							<span id="ven1" style="display: none">dddd</span>
+						</p> 
+                </div>
+           
+			   <div class="block float_left percent_50">
+             
+                    <span class="wide ">&#9794 MARS IN </span>
+						<h1 class="glyph">&#9794</h1>
+						<h1 class="wide " id="marssign_">SIGN</h1>
+						<p>  <span id="marsdeg"> </span>  <span id="marsmin"> </span> </p>
+						<p onclick="toggle_visibility('mars1');"> <img src="READMORE.svg" style="width: 15%;opacity:.6"> 
+							<span id="mars1" style="display: none">dddd</span>
+						</p>
+           
+               </div>
+            </div> 
+        </div>
+        
+        <div class="clr tertiary "> 
+			<h6> OUTER PLANETS</h6>
+            <div class="block float_left percent_20">
+                <span class="wide ">&#9795 JUPITER IN </span>
+					<h1 class="glyph">&#9795</h1>
+					<h1 class="wide " id="jupitersign_">SIGN</h1>
+					<p> <span id="jupiterdeg"> </span> <span id="jupitermin"> </span></p>
+					<p onclick="toggle_visibility('jup1');"> <img src="READMORE.svg" style="width: 15%;opacity:.6"> 
+						<span id="jup1" style="display: none">dddd</span>
+					</p>
+				
+            </div>
+			
+            <div class="block float_left percent_20">
+                <span class="wide ">&#9796 SATURN IN </span>
+					<h1 class="glyph">&#9796</h1>
+					<h1 class="wide " id="saturnsign_">SIGN</h1>
+					<p> <span id="saturndeg"> </span>  <span id="saturnmin"> </span> </p>
+					<p onclick="toggle_visibility('sat1');"> <img src="READMORE.svg" style="width: 15%;opacity:.6"> 
+						<span id="sat1" style="display: none">dddd</span>
+					</p>
+            </div>
+
+            <div class="block float_left percent_20">
+                <span class="wide ">&#9797 URANUS IN </span>
+					<h1 class="glyph">&#9797</h1>
+					<h1 class="wide " id="uranussign_">SIGN</h1>
+					<p> <span id="uranusdeg"> </span>  <span id="uranusmin"> </span></p>
+					<p onclick="toggle_visibility('ura1');"> <img src="READMORE.svg" style="width: 15%;opacity:.6"> 
+						<span id="ura1" style="display: none">dddd</span>
+					</p>
+            </div>
+
+            <div class="block float_left percent_20">
+                <span class="wide ">&#9798 NEPTUNE IN </span>
+				<h1 class="glyph">&#9798</h1>
+					<h1 class="wide " id="neptunesign_">SIGN</h1>
+					<p>  <span id="neptunedeg"> </span> <span id="neptunemin"> </span> </p>
+					<p onclick="toggle_visibility('nep1');"> <img src="READMORE.svg" style="width: 15%;opacity:.6"> 
+						<span id="nep1" style="display: none">dddd</span>
+					</p>
+            </div>
+
+            <div class="block float_left percent_20">
+                <span class="wide ">&#9799 PLUTO IN </span>
+					<h1 class="glyph">&#9799</h1>
+            		<h1 class="wide " id="plutosign_">SIGN</h1>
+					<p>  <span id="plutodeg"> </span>  <span id="plutomin"> </span></p>
+					<p onclick="toggle_visibility('pluto1');"> <img src="READMORE.svg" style="width: 15%;opacity:.6"> 
+						<span id="pluto1" style="display: none">dddd</span>
+					</p>
+            </div>
+
+
+              
+               
+        </div>
+    </div>
+
+    <table id="table">
+		 
+		<tr id="m5"> &nbsp;<td id="m5a"> &nbsp;</td><td id="m5b"> &nbsp;</td></tr>
+	
+	</table>
+<!--
+Sun	&#9737;
+
+	<h1 class="glyph">&#9799</h1>
+Mercury	&#9791;
+Venus &#9792;
+Earth &#9793;
+Mars &#9794;
+Jupiter	&#9795;
+Saturn &#9796;
+Uranus	&#9797;
+Neptune &#9798;    
+PLUTO &#9799;
+
+Conjunction
+Unicode Subset: 	Miscellaneous Symbols
+Unicode HEX: 	U+260C
+ASCII value: 	9740
+HTML: 	&#9740;
+
+Opposition
+Unicode Subset: 	Miscellaneous Symbols
+Unicode HEX: 	U+260D
+ASCII value: 	9741
+HTML: 	&#9741;
+-->
+
+ </fieldset> 
+ <script>
+	function disappear(){
+	  z = document.getElementById('dob_input').style.display = 'none';
+	return z;
+		 }
+  
+	function toggle_visibility(id) {
+       var e = document.getElementById(id);
+       if(e.style.display == 'none')
+          e.style.display = 'block';
+       else
+          e.style.display = 'none';
+    }
+ </script> 
+  
+</body>
+<!--scripts might prevent HTML elements from rendering. -->
+<!--Won't happen here, but sometimes it's good practice to add script below to allow bode elements to load. -->
+<!--This script disappears form to make room for planet interpolations and interpretations. -->
+
+</html>

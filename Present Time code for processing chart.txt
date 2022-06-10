@@ -1,0 +1,74 @@
+NEW LOGIC FUNCTION OBJECT FOR AUTO-START
+
+(Function TimeNow(	
+	PresentTime = new Date();
+	Var TimeAsString= PresentTime.toDateString();
+	var PresentDay	= TimeAsString.slice(0,3); 
+	var PresentDate = TimeAsString.slice(8,10); 
+	var PresentYear = TimeAsString.slice(11,15); 
+	var PresentMonth= TimeAsString.slice(4,7); 
+));	//fix so that this code auto-begins and refreshes itself every 1 minute. Check performance load and adjust appropriately.
+
+
+NEW LOGIC 
+// global
+PresentTime = new Date();
+// local string version
+Var TimeAsString= PresentTime.toDateString();
+var PresentDay	= TimeAsString.slice(0,3); 
+var PresentDate = TimeAsString.slice(8,10); 
+var PresentYear = TimeAsString.slice(11,15); 
+var PresentMonth= TimeAsString.slice(4,7); 
+
+
+OLD LOGIC 
+PresentTime = new Date();
+C:On the concern of leaving objects, maybe the present time should be global, as it comes from the os. Understand the added weight to the program of global objects. 
+
+var PresentDay	= PresentTime.getDay(); 
+var PresentDate = PresentTime.getDate();
+var PresentYear = PresentTime.getFullYear();
+var PresentMonth= PresentTime.getMonth();
+C: Parse elements of time and stringify them for type format.  
+// var	TimeAsString= PresentMonth.toDateString();
+C: If this comment is live
+// var	PresentMonth= TimeAsString.splice(0,6);
+function PresentMonth(){
+	switch(PresentMonth){
+		case 'Jan':
+		PresentMonth = Jan;
+		break; 
+		case 'Feb':
+		PresentMonth = Feb;
+		break; 
+		case 'Mar':
+		PresentMonth = Mar;
+		break; 
+		case 'Apr':
+		PresentMonth = Apr;
+		break; 
+		case 'May':
+		PresentMonth = May;
+		break; 
+		case 'Jun':
+		PresentMonth = Jun;
+		break; 
+		case 'Jul':
+		PresentMonth = Jul;
+		break; 
+		case 'Aug':
+		PresentMonth = Aug;
+		break; 
+		case 'Sep':
+		PresentMonth = Sep;
+		break; 
+		case 'Oct':
+		PresentMonth = Oct;
+		break; 
+		case 'Nov':
+		PresentMonth = Nov;
+		break; 
+		case 'Dec':
+		PresentMonth = Dec;
+		break; 
+		default: PresentMonth = Jan;	}						return {Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec};				}

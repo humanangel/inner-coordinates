@@ -1,0 +1,895 @@
+<!doctype HTML> 
+<!--must declare this per protocol mandate-->
+<html>
+ <head>
+<!-- the head is the hidden part of a website or service. 
+       Here is the home to instructional scripts, styles and meta data
+--><meta charset ="utf-8"/>
+<!--  script is the brains or thinking within the head section. 
+      Various scripting languages can direct this HTML. 
+      Right now Javascript is in charge.
+--><script>
+          function chartProcess(){
+// NAME DEFINITIONS
+// nob is Name of Birth Person (app user) 
+// This info is collected to identify a person to the chart. It is optional.
+          var nob = function nob(first_name,last_name) {
+                 this.fname = first_name;
+                 this.lname = last_name;
+                 this.hashID = 'cookie';
+                 fullName = fname +" "+ lname; 
+                return fullName;
+                }       
+
+// grab form data from input that is output to URL by way of the GET action method.
+// chartform is an array 
+ chartForm = document.URL.split('&');
+
+// grab form name from input that is output to URL by way of the GET action method. 
+        fName =  chartForm[2].slice(-2);
+        lName =  chartForm[3].slice(-2);
+// Discuss use of const as different from use of var.
+
+// NAME PROCESSING
+        userName = nob(fName,lName); 
+
+// DOB DEFINITIONS
+// dob is Date of Birth and creates 4 specific planet interpolations, one chart array 
+// each for a user's choice date, both days before and after that, and the current Date.  
+// again, grab form input that is output to URL by way of the GET action method.
+// this creates a month object
+         tMonth = +chartForm[4].slice(-2);
+
+		 
+// this creates a day object
+         tDay = +chartForm[5].slice(-2);
+// this creates a year object that is cloned and kept frozen by way of a const rename.
+// app searches according to how database is written. 
+// Discuss the privy benefits of building both database & its retrieving script together.
+          tYear = chartForm[6].slice(-4);
+         xYear = +tYear
+// this creates objects that output within rendered HTML ingested and formatted inputs.
+         var confirm = document.getElementById('confirm');
+         var interpolation = document.getElementById('interpolation');
+         var current_day_interpolation = document.getElementById('current_day_interpolation');
+         var next = document.getElementById('next');
+
+// TOB DEFINITIONS
+// tob is Time of Birth. 
+// again, grab form input that is output to URL by way of the GET action method.
+         birthhour = Number(chartForm[7].slice(-2));
+         birthminute = Number(chartForm[8].slice(-2));
+// Data does not contain second data but is built to process such data if and when loaded.
+         birthsecond = 0; 
+
+// AMPM DEFINITIONS
+// ampm is section of the day
+// again, grab form input that is output to URL by way of the GET action method.
+         ampm = chartForm[0].slice(-2); 
+
+
+
+
+// DOB PROCESSING 
+selectYear = function(tYear)
+ {   
+	 switch(tYear)
+	 {
+         case "1950" : tYear = Y1950; 
+         break; case "1951" : tYear = Y1951; 
+         break; case "1952" : tYear = Y1952; 
+         break; case "1953" : tYear = Y1953;
+         break; case "1954" : tYear = Y1954; 
+         break; case "1955" : tYear = Y1955; 
+         break; case "1956" : tYear = Y1956;
+         break; case "1955" : tYear = Y1955; 
+         break; case "1958" : tYear = Y1958; 
+         break; case "1959" : tYear = Y1959;
+         break; case "1960" : tYear = Y1960; 
+         break; case "1961" : tYear = Y1961; 
+         break; case "1962" : tYear = Y1962; 
+         break; case "1963" : tYear = Y1963;
+         break; case "1964" : tYear = Y1964; 
+         break; case "1965" : tYear = Y1965; 
+         break; case "1966" : tYear = Y1966;
+         break; case "1967" : tYear = Y1967; 
+         break; case "1966" : tYear = Y1966; 
+         break; case "1969" : tYear = Y1969;
+         break; case "1970" : tYear = Y1970; 
+         break; case "1971" : tYear = Y1971; 
+         break; case "1972" : tYear = Y1972; 
+         break; case "1973" : tYear = Y1973;
+         break; case "1974" : tYear = Y1974; 
+         break; case "1975" : tYear = Y1975; 
+         break; case "1976" : tYear = Y1976;
+         break; case "1977" : tYear = Y1977; 
+         break; case "1978" : tYear = Y1978; 
+         break; case "1979" : tYear = Y1979;
+         break; case "1980" : tYear = Y1980; 
+         break; case "1981" : tYear = Y1981; 
+         break; case "1982" : tYear = Y1982; 
+         break; case "1983" : tYear = Y1983;
+         break; case "1984" : tYear = Y1984; 
+         break; case "1985" : tYear = Y1985; 
+         break; case "1986" : tYear = Y1986;
+         break; case "1987" : tYear = Y1987; 
+         break; case "1988" : tYear = Y1988; 
+         break; case "1989" : tYear = Y1989;
+         break; case "1990" : tYear = Y1990; 
+         break; case "1991" : tYear = Y1991; 
+         break; case "1992" : tYear = Y1992; 
+         break; case "1993" : tYear = Y1993;
+         break; case "1994" : tYear = Y1994; 
+         break; case "1995" : tYear = Y1995; 
+         break; case "1996" : tYear = Y1996;
+         break; case "1997" : tYear = Y1997; 
+         break; case "1998" : tYear = Y1998; 
+         break; case "1999" : tYear = Y1999;
+         break; case "2000" : tYear = Y2000; 
+         break; case "2001" : tYear = Y2001; 
+         break; case "2002" : tYear = Y2002; 
+         break; case "2003" : tYear = Y2003;
+         break; case "2004" : tYear = Y2004; 
+         break; case "2005" : tYear = Y2005; 
+         break; case "2006" : tYear = Y2006;
+         break; case "2007" : tYear = Y2007; 
+         break; case "2008" : tYear = Y2008; 
+         break; case "2009" : tYear = Y2009;
+         break; case "2010" : tYear = Y2010; 
+         break; case "2011" : tYear = Y2011; 
+         break; case "2012" : tYear = Y2012; 
+         break; case "2013" : tYear = Y2013;
+         break; case "2014" : tYear = Y2014; 
+         break; case "2015" : tYear = Y2015; 
+         break; case "2016" : tYear = Y2016;
+         break; case "2017" : tYear = Y2017; 
+         break; case "2018" : tYear = Y2018; 
+         break; case "2019" : tYear = Y2019;
+         break; case "2020" : tYear = Y2020;        
+         default: tYear = Y1950;
+    } ;
+return tYear ;
+};
+
+
+
+
+// PRESENT TIME
+		   var PresentTime = new Date();
+		   var PresentDay	= PresentTime.getDay(); 
+		   var PresentDate = PresentTime.getDate();
+		   var PresentYear = PresentTime.getFullYear();
+		   var PresentMonth= PresentTime.getMonth();
+		   var PresentMinutes= PresentTime.getMinutes();
+		   var PresentHours= PresentTime.getHours();
+		   var PresentSeconds= PresentTime.getSeconds();
+
+// POB DEFINITIONS
+         let timeZone = parseInt(document.URL.slice(63,65));  
+		 offset = timeZone;
+		 offset = 24.0;
+		 offsethours = Math.trunc(offset)
+         offsetminutes = offset % 1
+
+ // TOB REFINEMENT
+// create object that contains logic to 
+ utcDOB = function details(){ 
+	
+	if (ampm == "am"){militaryhour = birthhour + 0}
+				  			   else if (ampm == "pm"){militaryhour  = birthhour +12};	
+				  
+				let x = {
+				 			'adjustments': 
+							 {'meridiem'  : ampm,
+							'offsethour' : offsethours = Math.trunc(offset),
+        					'offsetminute' : offsetminutes = offset % 1 * 60 
+				              },
+					        'militaryTime' :	
+					         {'milHour' : militaryhour,
+					        'milMinute' : birthminute  
+				              },
+				 			'hours' :
+							 {'localhour' : birthhour,
+							'utchour' :  offsethours + militaryhour,
+							'realhour' : 0							
+							  },
+							'minutes' :
+							 {'localminute' : birthminute,
+							'utcminute' : offsetminutes + birthminute,
+							'realminute' : 0
+							 },
+							 'seconds' :
+							{'localsecond' : birthsecond,
+							'utcsecond' : 0,
+							'realsecond' : 0
+							  },
+							'day' :
+							  {'localday' : tDay,
+							'realday' :  tDay
+							  },
+							 'month' : 
+							 {'localmonth' : tMonth,
+							'realmonth' : 0
+							  },
+							'year' :
+							{'localyear' : tYear,
+							'realyear' : 0
+							} 
+						  };
+			
+// REAL VERSION OF DOB
+
+
+				  if (x.minutes['utcminute'] > 60)
+				  {(x.hours['realhour'] = x.hours['utchour'] + 1) && (x.minutes['realminute'] = x.minutes['utcminute'] - 60)}
+				  else if (x.minutes['utcminute'] < 0)
+				  {(x.hours['realhour'] = x.hours['utchour'] - 1) && (x.minutes['realminute'] = x.minutes['utcminute'] +60)} 
+			      else {x.minutes['realminute'] = x.minutes['utcminute'],x.hours['realhour'] = x.hours['utchour']};
+			
+			      if (x.hours['utchour'] > 24)
+				  {(x.day['realday'] = x.day['localday'] + 1) && (x.hours['realhour'] = x.hours['utchour'] - 24)}
+				  else if (x.hours['utchour'] < 0)
+				  {(x.day['realday'] = x.day['localday'] - 1) && (x.hours['realhour'] = x.hours['utchour'] + 24)}
+				  else {x.hours['realhour'] = x.hours['utchour'], x.day['realday']= x.day['localday']}
+				
+				  if ((x.day['realday'] == 32) && (x.month['localmonth'] < 11))
+				  {x.month['realmonth'] = [x.month['localmonth'] + 1] }
+				  else if ((x.day['realday'] == 32) && (x.month['localmonth'] == 11))
+				  {x.year['realyear'] = x.year['localyear' + 1] }
+				  else {x.month['realmonth'] = x.month['localmonth'], x.year['realyear'] = x.year['localyear']}
+				  firstBreath = x;
+// TOB Revised for UTC 
+tDay = firstBreath.day.realday;
+
+tMonth = firstBreath.month.realmonth;
+tYear = firstBreath.year.realyear;
+// DOB Revised for UTC 
+birthhour = firstBreath.hours.realhour;
+birthminute = firstBreath.minutes.realminute;
+birthsecond = firstBreath.seconds.realsecond;
+
+				return firstBreath;
+				}   
+
+		// TOB function enacted
+		utcDOB();				
+
+// TOB Revised for UTC 
+tDay = firstBreath.day.realday;
+tMonth = firstBreath.month.realmonth;
+tYear = firstBreath.year.realyear;
+// DOB Revised for UTC 
+birthhour = firstBreath.hours.realhour;
+birthminute = firstBreath.minutes.realminute;
+birthsecond = firstBreath.seconds.realsecond;
+
+// UTC DOB is ingested by USER function to create chart data 
+user = function(tYear,tMonth,tDay){ 
+	// for next day of dec 31, go to Jan 1 of next year
+	if ((tDay == selectYear(tYear)[tMonth].length) && (tMonth == selectYear(tYear).length -1 ))
+	            {
+				tYear = xYear +1;
+				tYear = tYear.toString();
+				user_info = selectYear(tYear)[0][0];}
+    // for last day of month, go to day 1 of next month
+	else if ((tDay == selectYear(tYear)[tMonth].length || (tDay == undefined)) && (tMonth != selectYear(tYear).length ))
+	            { tDay = 0; zMonth = tMonth * 1 + 1;
+				tYear = tYear.toString();
+				user_info = selectYear(tYear)[zMonth][0];}
+    // for previous day of jan 1, go to dec 31 of prev year
+	else if ((tDay == -1) && (tMonth == 0 ))
+	            {
+				tYear = xYear -1;
+				tYear = tYear.toString();
+				user_info = selectYear(tYear)[11][30];}
+    // for previous day of month day 1, go to last of prev month
+	else if ((tDay == -1) && (tMonth != 0 ))
+	            {
+				tMonth = tMonth - 1;
+				tYear = tYear.toString();
+                dayLength = selectYear(tYear)[tMonth].length; 
+				user_info = selectYear(tYear)[tMonth][dayLength - 1];}
+/*
+// TASK:  IF USER TOB ON DEC 31 REVERTS TO JAN 1, DATA IS  A BIT OFF...FIX CODE BELOW TO SOLVE
+	// if code auto chooses next day when day# is 32 of Dec
+	else if ((tDay == 32) && (tMonth == 11 ))
+	            {
+				tDay = tDay - 32;
+				tMonth = tMonth - 11;
+				tYear = xYear +1;
+				tYear = tYear.toString();
+				user_info = selectYear(tYear)[0][0];}
+    // if code auto chooses next day when day# is 32 for all months except Dec
+	else if ((tDay == 32) && (tMonth < 11 ))
+	            {
+				tDay = tDay - 32;
+				aMonth = tMonth + 1;
+				tYear = xYear;
+				tYear = tYear.toString();
+				user_info = selectYear(tYear)[tMonth][tDay];}
+*/
+	// otherwise just select the next day 
+	else {tYear = tYear; tMonth = tMonth; tDay = tDay;
+		  user.user_info = selectYear(tYear)[+tMonth][+tDay]}
+         day = user_info.Day; 
+		  switch(day){
+			case 'Sun' : user_info.Day = "Sunday"
+			break; case 'Mon' : user_info.Day = "Monday"
+			break; case 'Tue' : user_info.Day = "Tuesday"
+			break; case 'Wed' : user_info.Day = "Wednesday"
+			break; case 'Thu' : user_info.Day = "Thursday"
+			break; case 'Fri' : user_info.Day = "Friday"
+			break; case 'Sat' : user_info.Day = "Saturday"
+			break; default : user_info.Day = "This day"  	
+		 }
+
+	return user_info ;
+		// TOB function enacted
+		utcDOB();
+};
+ 
+// REFINING CHART // USER 1 and USER 2 hidden from global scope.             
+			Yesterday = user(Y2020,PresentMonth,PresentDate-2);
+			Today = user(Y2020,PresentMonth,PresentDate-1);
+			Tomorrow = user(Y2020,PresentMonth,PresentDate);
+			userX = user(tYear,tMonth,tDay-2);
+			user1 = user(tYear,tMonth,tDay);
+			user0 = user(tYear,tMonth,tDay-1);
+					
+// PARSES PLANETS BY SIGN, DEGREE and MINUTE FOR REFINED DATA PROCESSING 
+planet = function planet(xxx){
+			planets = Object.values(xxx);	
+			day 	= planets[0];
+			number 	= planets[1];
+			SRT 	= planets[2];
+			sun 	= planets[3];
+			moon 	= planets[4];
+			mercury = planets[5];
+			venus 	= planets[6];
+			mars 	= planets[7];
+			jupiter = planets[8];
+			saturn 	= planets[9];
+			uranus 	= planets[10];
+			neptune = planets[11];
+			pluto 	= planets[12];
+			node 	= planets[13];	
+
+function layout(x){this.sign  =  x.match(/ar|ta|ge|cn|le|vi|li|sc|sg|cp|aq|pi/gi).join();            
+              switch(this.sign){
+					case 'AR' : signFullName = "Aries", signNumber=1;
+					break; case 'TA' : signFullName ="Taurus",signNumber=2;
+					break; case 'GE' : signFullName ="Gemini", signNumber=3;
+					break; case 'CN' : signFullName ="Cancer", signNumber=4;
+					break; case 'LE' : signFullName ="Leo", signNumber=5;
+					break; case 'VI' : signFullName ="Virgo", signNumber=6;
+					break; case 'LI' : signFullName ="Libra", signNumber=7;
+					break; case 'SC' : signFullName ="Scorpio", signNumber=8;
+					break; case 'SG' : signFullName ="Sagittarius", signNumber=9;
+					break; case 'CP' : signFullName ="Capricorn", signNumber=10;
+					break; case 'AQ' : signFullName ="Aquarius", signNumber=11;
+					break; case 'PI' : signFullName ="Pisces", signNumber=12;
+					break; default: signFullName,  signNumber =0;          
+			                  } 
+              this.degree = x.match(/^\d{2}/).join();
+              this.minute = x.match(/\d{2}$/).join();
+              this.second = 0;
+//DEBUG TOOL
+			  last_user_node = {sign : signFullName, signNo: +signNumber, 
+              degree: +this.degree, minute: +this.minute,
+               second: +this.second}
+               return last_user_node}  	
+display = { 'sun' : layout(sun),  'moon' : layout(moon),  'mercury' : layout(mercury), 
+'venus' : layout(venus),  'mars' : layout(mars),   'jupiter' : layout(jupiter),  
+'saturn' : layout(saturn),  'uranus' : layout(uranus),  'neptune' : layout(neptune),  
+'pluto' : layout(pluto),     'node' : layout(node)  				
+}
+var narrative = display.sun.sign  +" in "+display.sun.degree+ " degrees and " +display.sun.minute + " minutes. Moon sign was " 
++display.moon.sign + " in " +display.moon.degree+ " degrees and " +display.moon.minute + " minutes. Mars sign was "+
+display.mars.sign + " in " +display.mars.degree+ " degrees and " +display.mars.minute + " minutes. Venus sign was "+
+display.venus.sign + " in " + display.venus.degree+ " degrees and " +display.venus.minute + " minutes. Mercury sign was "+
+display.mercury.sign + " in " + display.mercury.degree+ " degrees and " + display.mercury.minute + " minutes. Jupiter sign was "+
+display.jupiter.sign + " in " + display.jupiter.degree+ " degrees and " + display.jupiter.minute + " minutes. Saturn sign was "+
+display.saturn.sign + " in " + display.saturn.degree+ " degrees and " + display.saturn.minute + " minutes. Uranus sign was "+
+display.uranus.sign + " in " + display.uranus.degree+ " degrees and " + display.uranus.minute + " minutes. Neptune sign was "+
+display.neptune.sign + " in " + display.neptune.degree+ " degrees and " + display.neptune.minute + " minutes. Pluto sign was "+
+display.pluto.sign + " in " + display.pluto.degree+ " degrees and " + display.pluto.minute;
+			 		
+return   [display, narrative];
+		}	
+	
+// USING FUNCTION ABOVE, BELOW ARE CALLS FOR USER's PLANETS TO BE REFINED
+			Yesterday = planet(Yesterday);
+			Today = planet(Today);
+			Tomorrow = planet(Tomorrow);
+			dayBeforeBirth = planet(userX);
+			dayAfterBirth = planet(user1);
+			dayOfBirth = planet(user0);          
+         
+// START INTERPOLATION LOGIC
+
+compareThisPlanets = function details(x){
+
+// AS BASE GET startPlanetSign & endPlanetSign 
+a = dayOfBirth[0]; // get startPlanet
+b = dayAfterBirth[0]; // get endPlanet
+// DECLARATIONS
+startPlanetSign = a[x].sign;  // filter by Sign 
+endPlanetSign = b[x].sign;  // filter by Sign
+startPlanetSignNumber = a[x].signNo;  // filter by SignNo 
+endPlanetSignNumber = b[x].signNo;  // filter by SignNo
+startPlanetDegree = a[x].degree;  // filter by Degree
+endPlanetDegree = b[x].degree;  // filter by Degree
+startPlanetMinute = a[x].minute;  // filter by Minute
+endPlanetMinute = b[x].minute;  // filter by Minute
+startPlanetSecond = a[x].second;  // filter by Second 
+endPlanetSecond = b[x].second;  // filter by Second
+startdayNumber = user0.DayN,   
+enddayNumber   = user1.DayN, 
+motion = "";
+
+// IDENTIFY RETROGRADE
+shiftedSignNumber = endPlanetSignNumber - startPlanetSignNumber;
+if(shiftedSignNumber ==0 && endPlanetDegree == startPlanetDegree && endPlanetMinute <startPlanetMinute)
+{motion ="r"}
+else if(shiftedSignNumber ==0 && endPlanetDegree < startPlanetDegree)
+{motion ="r"}
+else if(shiftedSignNumber < 0)
+{motion ="r"}
+else motion ="d";
+
+// IDENTIFY SHIFTS
+shiftedSign  = endPlanetSign +" "+ startPlanetSign;
+shiftedDegree = function details(){ 
+						if(endPlanetDegree == startPlanetDegree){
+						shiftedEndPlanetDegree = 30 + endPlanetDegree;
+						shiftedPlanetDegrees = Math.abs(shiftedEndPlanetDegree - startPlanetDegree)}
+						else if (endPlanetDegree != startPlanetDegree && endPlanetDegree == 0 )
+						{ shiftedStartPlanetDegree = Math.abs(30 - startPlanetDegree);
+						shiftedEndPlanetDegree = Math.abs(0 - endPlanetDegree);
+						shiftedPlanetDegrees = Math.abs(shiftedEndPlanetDegree - shiftedStartPlanetDegree)}
+						else if (endPlanetDegree != startPlanetDegree && startPlanetDegree == 0 )
+						{ shiftedPlanetDegrees = Math.abs(startPlanetDegree + endPlanetDegree)}
+						else {shiftedStartPlanetDegree = Math.abs(30 - startPlanetDegree);
+						shiftedEndPlanetDegree = Math.abs(30 - endPlanetDegree);
+						shiftedPlanetDegrees = Math.abs(shiftedStartPlanetDegree + endPlanetDegree)};
+				return shiftedPlanetDegrees;
+							}
+shiftedDegree();
+
+shiftedMinute = function details(){
+						if(endPlanetSign == startPlanetSign && endPlanetMinute > startPlanetMinute)
+						{  shiftedPlanetMinutes  = Math.abs(endPlanetMinute - startPlanetMinute);}
+						else if(endPlanetSign == startPlanetSign && startPlanetMinute > endPlanetMinute)
+						{  shiftedEndPlanetMinute = 60 + endPlanetMinute;
+							shiftedStartPlanetMinute = Math.abs(0 - startPlanetMinute);
+							shiftedPlanetMinutes  = shiftedEndPlanetMinute - shiftedStartPlanetMinute;}
+							
+						/*  shiftedPlanetMinutes  = Math.abs(endPlanetMinute - startPlanetMinute);
+						    (endPlanetMinute == startPlanetMinute)
+							shiftedEndPlanetMinute = 60 + endPlanetMinute;
+							shiftedStartPlanetMinute = Math.abs(0 - startPlanetMinute);
+							shiftedPlanetMinutes  = shiftedEndPlanetMinute - shiftedStartPlanetMinute;
+						
+						*/
+						else {shiftedEndPlanetMinute = 60 - endPlanetMinute;
+							 shiftedStartPlanetMinute = 60 - startPlanetMinute;
+							 shiftedPlanetMinutes = Math.abs(shiftedStartPlanetMinute + endPlanetMinute);}            
+			    return shiftedPlanetMinutes;
+                          }
+shiftedMinute();
+shiftedSecond = function details(){
+						if(endPlanetSecond == startPlanetSecond){
+						    shiftEndPlanetSecond = Math.abs(60 + endPlanetSecond)
+							shiftedPlanetSeconds = Math.abs(endPlanetSecond - startPlanetSecond)}
+                        else shiftEndPlanetSecond = Math.abs(60 - endPlanetSecond);
+						     shiftStartPlanetSecond = Math.abs(60 - startPlanetSecond);
+							shiftedPlanetSeconds = shiftEndPlanetSecond - shiftStartPlanetSecond;
+                return shiftedPlanetSeconds;      
+						}
+shiftedSecond();
+
+
+
+//PT 2
+/*
+comp = (shiftedPlanetDegrees * 60) + shiftedPlanetMinutes;
+// pt is 
+actions = 0;
+pt = actions //pt = actions.pt;  is actions defined? I dont think so
+//previously defined, why again?
+comp = comp * pt;                            
+compo =comp.toFixed(2).toString();
+//previously defined, why again?
+aipm = Math.trunc(comp);               
+compo.match( /[.]/);
+// compsec is 
+compsec = Math.trunc(parseInt(RegExp["$'"]));
+
+if(motion == 'r')     
+{shiftedMinutes =startPlanetMinute - aipm;_seconds = startPlanetSecond - compsec;
+shiftedDegrees =  shiftedPlanetDegrees}
+else if(motion == 'd')
+{shiftedMinutes =startPlanetMinute + aipm;_seconds = startPlanetSecond + compsec;
+shiftedDegrees =  shiftedPlanetDegrees} 
+else shiftedMinutes; 
+
+if(_seconds < 0)      
+{FinalSeconds = _seconds +60; 
+shiftedMinutes = shiftedMinutes - 1}
+else if(_seconds > 59)
+{FinalSeconds = _seconds - 60; shiftedMinutes= shiftedMinutes + 1}
+else FinalSeconds =_seconds;
+
+if(shiftedMinutes < 0)      
+{FinalMinute = shiftedMinutes +60; shiftedDegrees = startPlanetDegree - 1}
+else if(shiftedMinutes > 59){FinalMinute = shiftedMinutes -60; 
+shiftedDegrees = startPlanetDegree + 1}
+else {FinalMinute = shiftedMinutes; FinalDegree = shiftedDegrees}
+
+if(shiftedDegrees < 0)      
+{FinalDegree = shiftedDegrees +30; FinalSignNumber = startPlanetSignNumber - 1}
+else if(shiftedDegrees > 29)
+{FinalDegree = shiftedDegrees -30; FinalSignNumber = startPlanetSignNumber + 1;
+FinalSign = endPlanetSign}
+else if(shiftedDegrees == 0)
+{FinalDegree = startPlanetDegree; startPlanetSignNumber = startPlanetSignNumber + 0}
+else FinalDegree = shiftedDegrees;
+
+if(comp == 0)
+{FinalDegree = startPlanetDegree; FinalMinute =startPlanetMinute; 
+FinalSeconds = startPlanetSecond}   
+else {;}
+
+if(shiftedSignNumber == 0)
+{FinalSignNumber = startPlanetSignNumber;FinalSign = startPlanetSign; }   
+else {;}
+*/
+//PT 2
+
+FinalSign =[startPlanetSign,endPlanetSign]
+FinalSignNumber =[startPlanetSignNumber, endPlanetSignNumber]
+FinalMinute =[startPlanetMinute, endPlanetMinute]
+FinalDegree = [startPlanetDegree, endPlanetDegree]
+FinalSeconds = [startPlanetSecond, endPlanetSecond]
+
+return {'FinalSign':FinalSign, 'FinalSignNumber':FinalSignNumber, 
+        'FinalMinute':FinalMinute, 'FinalDegree':FinalDegree,'FinalSeconds':FinalSeconds};
+};
+
+/**/
+
+// END INTERPOLATION LOGIC
+//MODIFIED DOCUMENT AREA
+           modifiedDate = document.getElementById('modifiedDate');
+           info = document.lastModified;
+           modifiedDate.innerHTML ="Last Modified: " +info; 
+
+// EXTRA TASK COLOR
+/*
+	 	function colors(x){
+			if(x < 12){color = "less than 12";}
+			else if(x == 12){color = "high noon colors";}
+			else if (x >12){color = 1216}
+			else if (x =>16){color = 160;}
+			else color = 0;
+			this.color = color;
+				return color;
+             }
+*/
+
+ ////////////////////////////////////////////////////
+// DISPLAY PLANET INTERPOLATIONS ON SCREEN VIA DOM MANIPULATION 
+///////////////////////////////////////////////////
+
+// question1.textContent ='';
+ confirm.textContent = "Hi " + userName + "! Just to confirm, I have your birth date as  " +day + " / "+[tMonth  + 1]+ " / "+tDay + " / "+xYear ;
+ interpolation.textContent = "Based on the info given, here is a brief summary. On the birthday of "+
+ tMonth+ " "+tDay+ " "+ xYear + ", which was a "+ day+ ", at around "+birthhour +":"+birthminute +" am/pm, Sun sign was "+dayOfBirth[1] +".";
+ current_day_interpolation.textContent =  "At the moment... "+Today[1]+" and YESTERDAY ... " +Yesterday[1]+" and EVEN TOMORROW ... " +Tomorrow[1]+"."  
+//script end
+
+//HIDE FORM AFTER SUBMISSION
+document.getElementById('dob_input').setAttribute('style','display: none');
+    
+}
+   </script> 
+     <script src="years.js"></script>  
+<!--style is the fashion director of this site or service. 
+       Ideally this will be loaded from a file located externally to this one.
+--><style> 
+    .form {width: 50%; padding: 1%}
+    .name_box {width: 95%; margin: 1% 0; padding: 1%}
+    .time_box {width: 35%;margin: 0% 2% 0% 0%;padding: 1%; display: block;float: left;}
+    .dob_box{ width: auto; margin: 1%; display: block;position:relative; float:left;margin-right: 3%;}
+    .tob {};
+     .pob{};
+     .ampm{};
+      .submit {width: 99%; }   
+      .fieldset {border: 2px solid blue; width: 45%; display: block; padding: 1%}
+    .image_click{width: 30%; margin: o auto; display: block; position:relative }
+    </style>
+ </head>
+<!--the body is the visible part of the webpage or service. It is the place of UX/UI
+    user design and interface. This body calls on the head to run its script with the
+    onload HTML attribute 
+--><body onload ="chartProcess()">
+     <fieldset class="fieldset">
+		 <legend id="modifiedDate">  </legend>
+		 <h1>innerCoordinates.nyc </h1> 
+		 <form class="form" name="dob_input" id="dob_input" action="current-model.html" method="GET" onsubmit="disappear()">
+		    <h2 id="ask_dob"> Please share your name and select your date of birth.</h2>
+		   <div class="tob, ampm">
+		    <label > What part of the day where you born? <label>
+		    <br/>
+		    <input type = 'radio' value="am" for ="" id="am" name="ampm" class="ampm"/>
+			<label for = "am"> Morning <label> &nbsp;&nbump; &nbump; &nbsp;
+			<label for = "pm"> Evening <label>
+  			<input type = 'radio' value="pm" for ="" id="pm" name="ampm" class="ampm"/>
+  			<hr/>
+		   </div>
+		   <div class="pob">
+			<label for="pob">Birth Place: Where is home for you?</label><br/>
+			<select id="pob" name="pob" size="4">
+			  <option value=05.5 >USA: EST</option>
+			  <option value=05 >USA: Connecticut</option>
+			  <option value=05.5 >USA: Delaware</option>
+			  <option value=05.5 >USA: Vermont</option>
+			  <option value=05 >USA: New Jersey</option>
+			  <option value=05.5 >USA: New York</option>
+			  <option value=05 >USA: Georgia</option>
+			  <option value=06.5 >USA: CST</option>
+			  <option value=06 >USA: Illinois</option>
+			  <option value=07.5 >USA: MST</option>
+			  <option value=07 >USA: Kansas</option>
+			  <option value=07 >USA: Utah</option>
+			  <option value=08.5 >USA: PST</option>
+			  <option value=08 >USA: California</option>
+			  <option value=08 >USA: Oregon</option>
+			  <option value=09 >USA: AST</option>
+			  <option value=09 >USA: Alaska</option>
+			  <option value=10.5 >USA: HST</option>
+			  <option value=12.5 >USA: Hawaii</option>         
+			</select>
+		</div>
+		<label for ="finitial">First Name (Initial)</label>
+		<input type="text" name="finitial" id="finitial" class="name_box" maxlength="">
+		<label for ="linitial">Last Name (Initial) </label>
+		<input type="text" name="linitial" id="linitial" class="name_box" maxlength="">
+		<div class="dob_box">
+			<label for="dob-month">Birth Month</label><br/>
+			<select id="month" name="dob_month" size="4">
+			  <option value=00 >January</option>
+			  <option value=01 >February</option>
+			  <option value=02 >March</option>
+			  <option value=03 >April</option>
+			  <option value=04 >May</option>
+			  <option value=05 >June</option>
+			  <option value=06 >July</option>
+			  <option value=07 >August</option>
+			  <option value=08 >September</option>
+			  <option value=09 >October</option>
+			  <option value=10 >November</option>
+			  <option value=11 >December</option>
+			</select>
+		</div>
+		<div class="dob_box">
+			<label for="dob-day">Birth Date</label><br/>
+			<select id="day" name="dob_day" size="4">
+			  <option value=01 >1</option>
+			  <option value=02>2</option>
+			  <option value=03>3</option>
+			  <option value=04>4</option>
+			  <option value=05>5</option>
+			  <option value=06>6</option>
+			  <option value=07>7</option>
+			  <option value=08>8</option>
+			  <option value=09>9</option>
+			  <option value=10>10</option>
+			  <option value=11>11</option>
+			  <option value=12>12</option>
+			  <option value=13>13</option>
+			  <option value=14>14</option>
+			  <option value=15>15</option>
+			  <option value=16>16</option>
+			  <option value=17>17</option>
+			  <option value=18>18</option>
+			  <option value=19>19</option>
+			  <option value=20>20</option>
+			  <option value=21>21</option>
+			  <option value=22>22</option>
+			  <option value=23>23</option>
+			  <option value=24>24</option>
+			  <option value=25 >25</option>
+			  <option value=26>26</option>
+			  <option value=27>27</option>
+			  <option value=28>28</option>
+			  <option value=29>29</option>
+			  <option value=30>30</option>
+			  <option value=31>31</option>
+			</select>
+		</div>
+		<div class="dob_box">
+		<label for="dob-year">Birth Year</label><br/>
+		<select id="year" name="dob_year" size="4">
+			  <option value=1950>1950</option>
+			  <option value=1951>1951</option>
+			  <option value=1952>1952</option>
+			  <option value=1953>1953</option>
+			  <option value=1954>1954</option>
+			  <option value=1955>1955</option>
+			  <option value=1956>1956</option>
+			  <option value=1957>1957</option>
+			  <option value=1958>1958</option>
+			  <option value=1959>1959</option>
+			  <option value=1960>1960</option>
+			  <option value=1961>1961</option>
+			  <option value=1962>1962</option>
+			  <option value=1963>1963</option>
+			  <option value=1964>1964</option>
+			  <option value=1965>1965</option>
+			  <option value=1966>1966</option>
+			  <option value=1967>1967</option>
+			  <option value=1968>1968</option>
+			  <option value=1969>1969</option>
+			  <option value=1970>1970</option>
+			  <option value=1971>1971</option>
+			  <option value=1972>1972</option>
+			  <option value=1973>1973</option>
+			  <option value=1974>1974</option>
+			  <option value=1975>1975</option>
+			  <option value=1976>1976</option>
+			  <option value=1977>1977</option>
+			  <option value=1978>1978</option>
+			  <option value=1979>1979</option>
+			  <option value=1980>1980</option>
+			  <option value=1981>1981</option>
+			  <option value=1982>1982</option>
+			  <option value=1983>1983</option>
+			  <option value=1984>1984</option>
+			  <option value=1985>1985</option>
+			  <option value=1986>1986</option>
+			  <option value=1987>1987</option>
+			  <option value=1988>1988</option>
+			  <option value=1989>1989</option>
+			  <option value=1990>1990</option>
+			  <option value=1991>1991</option>
+			  <option value=1992>1992</option>
+			  <option value=1993>1993</option>
+			  <option value=1994>1994</option>
+			  <option value=1995>1995</option>
+			  <option value=1996>1996</option>
+			  <option value=1997>1997</option>
+			  <option value=1998>1998</option>
+			  <option value=1999>1999</option>
+			  <option value=2000>2000</option>
+			  <option value=2001>2001</option>
+			  <option value=2002>2002</option>
+			  <option value=2003>2003</option>
+			  <option value=2004>2004</option>
+			  <option value=2005>2005</option>
+			  <option value=2006>2006</option>
+			  <option value=2007>2007</option>
+			  <option value=2008>2008</option>
+			  <option value=2009>2009</option>
+			  <option value=2010>2010</option>
+			  <option value=2011>2011</option>
+			  <option value=2012>2012</option>
+			  <option value=2013>2013</option>
+			  <option value=2014>2014</option>
+			  <option value=2015>2015</option>
+			  <option value=2016>2016</option>
+			  <option value=2017>2017</option>
+			  <option value=2018>2018</option>
+			  <option value=2019>2019</option>
+			  <option value=2020>2020</option>
+			  <option value=2021>2021</option>
+		</select>
+		</div>
+		<hr style="clear:both"/>
+		<label class="time_box" for ="time_of_birth">About what time were you born?</label>
+		<div class="dob_box">
+			<label for="tob-hour">Hour</label><br/>
+			<select id="tob-hour" name="h " size="4">
+			  <option value=01>1</option>
+			  <option value=02>2</option>
+			  <option value=03>3</option>
+			  <option value=04>4</option>
+			  <option value=05>5</option>
+			  <option value=06>6</option>
+			  <option value=07>7</option>
+			  <option value=08>8</option>
+			  <option value=09>9</option>
+			  <option value=10>10</option>
+			  <option value=11>11</option>
+			  <option value=12>12</option>
+			</select>
+		</div>
+		<div class="dob_box">
+			<label for="tob-minute">Minute</label><br/>
+			<select id="tob-minute" name="m" size="4">
+			  <option value=01>1</option>
+			  <option value=02>2</option>
+			  <option value=03>3</option>
+			  <option value=04>4</option>
+			  <option value=05>5</option>
+			  <option value=06>6</option>
+			  <option value=07>7</option>
+			  <option value=08>8</option>
+			  <option value=09>9</option>
+			  <option value=10>10</option>
+			  <option value=11>11</option>
+			  <option value=12>12</option>
+			  <option value=13>13</option>
+			  <option value=14>14</option>
+			  <option value=15>15</option>
+			  <option value=16>16</option>
+			  <option value=17>17</option>
+			  <option value=18>18</option>
+			  <option value=19>19</option>
+			  <option value=20>20</option>
+			  <option value=21>21</option>
+			  <option value=22>22</option>
+			  <option value=23>23</option>
+			  <option value=24>24</option>
+			  <option value=25>25</option>
+			  <option value=26>26</option>
+			  <option value=27>27</option>
+			  <option value=28>28</option>
+			  <option value=29>29</option>
+			  <option value=30>30</option>
+			  <option value=31>31</option>
+			  <option value=32>32</option>
+			  <option value=33>33</option>
+			  <option value=34>34</option>
+			  <option value=35>35</option>
+			  <option value=36>36</option>
+			  <option value=37>37</option>
+			  <option value=38>38</option>
+			  <option value=39>39</option>
+			  <option value=40>40</option>
+			  <option value=41>41</option>
+			  <option value=42>42</option>
+			  <option value=43>43</option>
+			  <option value=44>44</option>
+			  <option value=45>45</option>
+			  <option value=46>46</option>
+			  <option value=47>47</option>
+			  <option value=48>48</option>
+			  <option value=49>49</option>
+			  <option value=50>50</option>
+			  <option value=51>51</option>
+			  <option value=52>52</option>
+			  <option value=53>53</option>
+			  <option value=54>54</option>
+			  <option value=55>55</option>
+			  <option value=56>56</option>
+			  <option value=57>57</option>
+			  <option value=58>58</option>
+			  <option value=59>59</option> 
+			</select>
+		</div>
+		<hr style="clear:both"/>
+<!--		<input id='time_of_birth' name='time_of_birth' type="time" width="90%" class="time_box" form ="dob_input"/>
+-->	<!-- It makes no sense to label this hidden field. Fix with best practice.-->
+		<label for ="hidden"><input type="hidden" value='123' id="hidden"/> </label>
+		  <input  class="submit" id="submit" type="submit"  alt=" " value="see your chart"/>
+	 </form>
+	 <h3 id="confirm"> </h3>
+     <p id="interpolation"> </p>
+     <table id="table">
+		<tr id="current_day_interpolation"> </tr>
+	 </table>
+    </fieldset>  
+  </body>
+<!--scripts might prevent HTML elements from rendering. Won't happen here, 
+but sometimes it's good practice to add script below to allow bode elements to load.
+This script disappears form to make room for planet interpolations and interpretations.
+--><script>
+       function disappear(){
+	z = document.getElementById('dob_input').style.display = 'none';
+    // DELETE z =	document.getElementById('dob_input').setAttribute('style','display: none')
+    // DELETE z = document.getElementsByTagName('form').item([0]).setAttribute('style','display:none');
+       return z;
+       }
+ </script>
+</html>

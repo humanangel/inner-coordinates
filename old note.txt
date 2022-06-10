@@ -1,0 +1,50 @@
+
+great circle
+A line formed by the intersection of the surface of a sphere and a plane that passes through the center of the sphere.
+
+
+plane of the ecliptic
+The plane of the great circle on the celestial plane that is the apparent annual path of the sun around the earth.
+
+
+
+obliquity of the ecliptic
+The angle between the plane of the ecliptic (or the plane of the earth's orbit) and the plane of the earth's equator; the "tilt" of the earth.
+
+The obliquity of the ecliptic is computed from the following formula:
+
+   23degree 27 minute 08.26 seconds - 0.4684 ( t - 1900)second,
+
+where t is the year for which the obliquity is desired. For 1999, the value was 23°26′21.89″. It is the oblique orientation of the earth's axis relative to its orbit that accounts for the seasons, for, in the period of a year, the angle of incidence of incoming solar radiation varies by nearly 47° at any one place. Particularly at high latitudes, this results in a great seasonal temperature contrast. M. Milankovitch has calculated that the obliquity of the ecliptic varies between 24.5° and 22° in the course of 40 000 years. This variation may be considered as a long-period climatic control and is included in the astronomical theory of ice ages.
+
+
+
+
+climatic control
+Any one of the relatively permanent factors that govern the general nature of the climate of a portion of the earth.
+
+These factors include 1) solar radiation, especially as it varies with latitude; 2) distribution of land and water masses; 3) elevation and large-scale topography; and 4) the atmospheric concentration of greenhouse gases. The types of climatic controls were used as the basis for early climatic classifications. All of these have been nearly constant during historical time, but most or all of them have changed during geologic time and have caused large-scale changes of climate.
+See climate control.
+
+
+
+Obliquity of the Ecliptic
+
+
+Obliquity of the ecliptic is not a term that trips easily off the tongue, nor is it an easy concept to grasp technically. Yet it is vitally important for anyone investigating possible architectural alignments upon the sun, moon, or planets to take account of the way the obliquity of the ecliptic changes over the centuries, just as it is necessary for investigations of possible stellar alignments to take account of precession.
+
+Each day, as the stars and sun move together around the rotating celestial sphere, the sun moves by a small amount against the stars. Only after a full year does it return to the same position, having traced out a path through the stars known as the ecliptic. The ecliptic is a circle, but it is inclined at an angle to the daily paths of the stars, which move around on lines of constant “latitude,” or declination. In particular, if we focus on the celestial equator because it is the one line of constant declination that is also a great circle (a circle of the largest possible size that can be drawn on a sphere, its center coinciding with the center of the sphere), then we find that the angle of inclination between the ecliptic (also a great circle) and the celestial equator is between twenty-three and twenty-four degrees. It is this angle that is known as the obliquity of the ecliptic.
+
+At a certain time of year, the sun reaches the northernmost point on the ecliptic. This is the June solstice, and its declination at this time is approximately 23.5 degrees. Six months later, it reaches its southernmost point: this is the December solstice, and its declination now is approximately -23.5 degrees. When the sun crosses the celestial equator, in the spring and autumn, its declination is 0. These times are known as the equinoxes.
+
+To understand what the obliquity is and hence to understand how it changes, it is best to switch to the astronomer’s perspective, looking in on the solar system. The earth, as it orbits annually around the sun, also spins daily about its own axis. If this axis were perpendicular to the plane of the earth’s orbit, then the sun would simply appear to us to move around the celestial equator. But it isn’t. The axis of spin (the earth’s polar axis) actually leans over by about 23.5 degrees, and this is the reason that the ecliptic is inclined to the celestial equator by this amount; in other words, it is this leaning over that gives rise to the obliquity.
+
+Putting to the back of our minds for a moment that it is also orbiting around the sun, the earth in fact resembles a spinning top, in that it not only spins daily about its axis, but the axis itself gradually turns, going once round approximately every twenty-six thousand years. It is this turning that is known as precession. But a spinning top also wobbles; and so does the earth. The difference is that a top gradually spins down, so its “obliquity” gets greater and greater until the top falls over. The tip of the earth’s axis, on the other hand, oscillates slightly up and down. The obliquity in fact swings between about twenty-five degrees and about twenty-two degrees over a timescale of some forty-one thousand years.
+
+The last five thousand years represent a small segment of this cycle. During this time the obliquity has been gradually decreasing, from approximately 24.0 degrees in 2500 b.c.e. to about 23.5 degrees in the present day. One practical effect of this is that the ranges over which the rising and setting position of the sun swings during the year were somewhat wider in, say, Neolithic times. In particular, the rising and setting positions of the sun at the solstices were about one degree (two solar diameters) further away from each other then than they are now. (The shift is actually in declination: at higher latitudes, where the rising and setting path is shallower, the shift in azimuth is greater than this.) This is important in assessing the astronomical significance of later prehistoric monuments such as Newgrange (Ireland) or Brainport Bay (Scotland). The rising and setting ranges of the moon and planets have contracted correspondingly over recent millennia, and it is important for archaeoastronomers to take these changes into account. But for the moon and planets the effects of the changing obliquity are superimposed upon much more complex shorter-term variations.
+
+The longer-term cycle of change in the obliquity of the ecliptic becomes important if it is proposed that much older (Palaeolithic) sites might have been solstitially aligned. An example of this is Parpallo, a cave in eastern Spain that was occupied from about 19,000 b.c.e. to 8000 b.c.e. and into which the light of the sun would have penetrated after sunrise at the winter solstice.
+
+Another practical effect of the changing obliquity is that the Tropics of cancer and capricorn, and the Arctic and Antarctic circles, move gradually up and down on the earth. Apart from affecting the size of the tropics and polar regions, this movement might also have had a direct effect upon myths associated with, and ritual significance accorded to, places that were or had been on the tropic. A classic example of this is Necker Island in the Hawaiian chain.
+
+In summary, precession causes the rising and setting positions of the stars to change over the centuries, but it is the change in the obliquity of the ecliptic that affects the rising and setting positions of the sun, moon, and planets. Compared with the changes to stellar rising and setting positions due to precession, the changes in the rising and setting positions of the sun, moon, and planets due to the changing obliquity are not great, but they do become significant over a time scale of millennia.
